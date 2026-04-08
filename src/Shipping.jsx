@@ -11,13 +11,6 @@ import shopPromo from "./assets/shop.webp";
 import productPromo1 from "./assets/p2.webp";
 import productPromo2 from "./assets/p4.webp";
 import breadcrumbImage from "./assets/jewelry-3-breadcrumb.jpg";
-import aboutStoryImage from "./assets/about-us1.webp";
-import aboutClientImage from "./assets/kristen.avif";
-import aboutus2 from "./assets/about-us-2.webp";
-import team1 from "./assets/team1.webp";
-import team2 from "./assets/team2.webp";
-import team3 from "./assets/team3.webp";
-import team4 from "./assets/team4.webp";
 import visaCard from "./assets/visa.png";
 import mastercardCard from "./assets/mastercard.png";
 import paypalCard from "./assets/paypal.png";
@@ -112,24 +105,6 @@ function MailIcon() {
   );
 }
 
-function ArrowLeftIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M14.5 6.5 9 12l5.5 5.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M10 12h8" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ArrowRightIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M9.5 6.5 15 12l-5.5 5.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M14 12H6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 const homeMenuItems = [
   { id: 1, title: "06 Classic jewelry", image: home6, badge: "New" },
   { id: 2, title: "01 Unique jewelry", image: menu2 },
@@ -142,94 +117,38 @@ const homeMenuItems = [
 const shopMenuColumns = [
   {
     title: "Earrings",
-    items: [
-      "Blue heavy t-shirt",
-      "Brown sunglasses",
-      "Bucket shoes",
-      "Iamond rashmi ring",
-      "Floral gold bangle",
-      "Glitter diamond ring",
-    ],
+    items: ["Blue heavy t-shirt", "Brown sunglasses", "Bucket shoes", "Iamond rashmi ring", "Floral gold bangle", "Glitter diamond ring"],
   },
   {
     title: "Necklace",
-    items: [
-      "Rose gold rings",
-      "Brown sunglasses",
-      "Bucket shoes",
-      "Color print sandal",
-      "Floral gold bangle",
-      "Simple Pearl earrings",
-    ],
+    items: ["Rose gold rings", "Brown sunglasses", "Bucket shoes", "Color print sandal", "Floral gold bangle", "Simple Pearl earrings"],
   },
   {
     title: "Rings",
-    items: [
-      "Blue heavy t-shirt",
-      "Brown sunglasses",
-      "Dark sunglasses",
-      "Half sleev tshirt",
-      "Formal shirt",
-      "Gold nose pin",
-    ],
+    items: ["Blue heavy t-shirt", "Brown sunglasses", "Dark sunglasses", "Half sleev tshirt", "Formal shirt", "Gold nose pin"],
   },
   {
     title: "Bracelets",
-    items: [
-      "Blue heavy t-shirt",
-      "Brown sunglasses",
-      "Formal shoes",
-      "Formal shirt",
-      "Blue heavy t-shirt",
-      "Brown sunglasses",
-    ],
+    items: ["Blue heavy t-shirt", "Brown sunglasses", "Formal shoes", "Formal shirt", "Blue heavy t-shirt", "Brown sunglasses"],
   },
 ];
 
 const productMenuColumns = [
   {
     title: "Earrings",
-    items: [
-      "Blue heavy t-shirt",
-      "Brown sunglasses",
-      "Bucket shoes",
-      "Iamond rashmi ring",
-      "Floral gold bangle",
-      "Glitter diamond ring",
-    ],
+    items: ["Blue heavy t-shirt", "Brown sunglasses", "Bucket shoes", "Iamond rashmi ring", "Floral gold bangle", "Glitter diamond ring"],
   },
   {
     title: "Bracelets",
-    items: [
-      "Blue heavy t-shirt",
-      "Brown sunglasses",
-      "Formal shoes",
-      "Formal shirt",
-      "Blue heavy t-shirt",
-      "Brown sunglasses",
-    ],
+    items: ["Blue heavy t-shirt", "Brown sunglasses", "Formal shoes", "Formal shirt", "Blue heavy t-shirt", "Brown sunglasses"],
   },
   {
     title: "Necklace",
-    items: [
-      "Rose gold rings",
-      "Brown sunglasses",
-      "Bucket shoes",
-      "Color print sandal",
-      "Floral gold bangle",
-      "Simple Pearl earrings",
-    ],
+    items: ["Rose gold rings", "Brown sunglasses", "Bucket shoes", "Color print sandal", "Floral gold bangle", "Simple Pearl earrings"],
   },
   {
     title: "Rings",
-    items: [
-      "Blue heavy t-shirt",
-      "Brown sunglasses",
-      "Dark sunglasses",
-      "Half sleev tshirt",
-      "Formal shirt",
-      "Gold nose pin",
-    ],
+    items: ["Blue heavy t-shirt", "Brown sunglasses", "Dark sunglasses", "Half sleev tshirt", "Formal shirt", "Gold nose pin"],
   },
 ];
 
@@ -242,13 +161,6 @@ const pagesMenuItems = [
   "Store location",
   "Shipping & return",
   "Terms & condition",
-];
-
-const aboutTeamMembers = [
-  { id: "harvey-jones", image: team1, name: "HARVEY JONES", role: "Ceo & founder" },
-  { id: "mory-orlando", image: team2, name: "MORY ORLANDO", role: "Marketing" },
-  { id: "harlie-puth", image: team3, name: "HARLIE PUTH", role: "Designer & model" },
-  { id: "tristin-chineze", image: team4, name: "TRISTIN CHINEZE", role: "Distribution" },
 ];
 
 const footerSocials = [
@@ -266,7 +178,7 @@ const footerPayments = [
   { id: "discover", image: discoverCard, alt: "Discover" },
 ];
 
-function AboutUs() {
+function Shipping() {
   const [isHomeMenuOpen, setIsHomeMenuOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
@@ -332,49 +244,17 @@ function AboutUs() {
     window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
-  const navigateToAboutUs = () => {
-    navigateTo("/about-us");
-  };
-
-  const navigateToAboutUs2 = () => {
-    navigateTo("/about-us-2");
-  };
-
-  const navigateToContactUs = () => {
-    navigateTo("/contact-us");
-  };
-
-  const navigateToContactUs2 = () => {
-    navigateTo("/contact-us-2");
-  };
-
-  const navigateToFaqs = () => {
-    navigateTo("/faqs");
-  };
-
-  const navigateToPrivacyPolicy = () => {
-    navigateTo("/privacy-policy");
-  };
-
-  const navigateToRefund = () => {
-    navigateTo("/refund");
-  };
-
-  const navigateToLocation = () => {
-    navigateTo("/location");
-  };
-
-  const navigateToShipping = () => {
-    navigateTo("/shipping");
-  };
-
-  const navigateToTerms = () => {
-    navigateTo("/terms");
-  };
-
-  const navigateToBlog = () => {
-    navigateTo("/blog");
-  };
+  const navigateToAboutUs = () => navigateTo("/about-us");
+  const navigateToAboutUs2 = () => navigateTo("/about-us-2");
+  const navigateToContactUs = () => navigateTo("/contact-us");
+  const navigateToContactUs2 = () => navigateTo("/contact-us-2");
+  const navigateToFaqs = () => navigateTo("/faqs");
+  const navigateToPrivacyPolicy = () => navigateTo("/privacy-policy");
+  const navigateToRefund = () => navigateTo("/refund");
+  const navigateToLocation = () => navigateTo("/location");
+  const navigateToShipping = () => navigateTo("/shipping");
+  const navigateToTerms = () => navigateTo("/terms");
+  const navigateToBlog = () => navigateTo("/blog");
 
   return (
     <main className="page-shell">
@@ -384,30 +264,15 @@ function AboutUs() {
             <img src={logo} alt="Jelwo" className="brand__logo" />
             <span className="brand__divider" aria-hidden="true"></span>
           </div>
-
           <p className="topbar__message">Free UK standard delivery on all orders.</p>
-
           <div className="topbar__actions">
             <label className="search" aria-label="Search">
               <input type="text" placeholder="Search product..." />
-              <span className="search__icon">
-                <SearchIcon />
-              </span>
+              <span className="search__icon"><SearchIcon /></span>
             </label>
-
-            <button className="icon-link" type="button" aria-label="Account">
-              <UserPlusIcon />
-            </button>
-
-            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist">
-              <HeartIcon />
-              <span>(0)</span>
-            </button>
-
-            <button className="icon-link icon-link--count" type="button" aria-label="Cart">
-              <BagIcon />
-              <span>(0)</span>
-            </button>
+            <button className="icon-link" type="button" aria-label="Account"><UserPlusIcon /></button>
+            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist"><HeartIcon /><span>(0)</span></button>
+            <button className="icon-link icon-link--count" type="button" aria-label="Cart"><BagIcon /><span>(0)</span></button>
           </div>
         </div>
       </header>
@@ -415,25 +280,15 @@ function AboutUs() {
       <nav className="subbar">
         <div className="subbar__inner">
           <div className="subbar__phone">
-            <span className="subbar__icon">
-              <HeadsetIcon />
-            </span>
+            <span className="subbar__icon"><HeadsetIcon /></span>
             <span>(220) 123 456 7890</span>
           </div>
 
           <div className="subbar__menu">
-            <div
-              className="subbar__menu-item"
-              onMouseEnter={openHomeMenu}
-              onMouseLeave={closeMenus}
-            >
-              <button
-                className={`subbar__menu-btn ${isHomeMenuOpen ? "is-active" : ""}`}
-                type="button"
-              >
+            <div className="subbar__menu-item" onMouseEnter={openHomeMenu} onMouseLeave={closeMenus}>
+              <button className={`subbar__menu-btn ${isHomeMenuOpen ? "is-active" : ""}`} type="button">
                 HOME <span><i className="fa fa-chevron-down" aria-hidden="true"></i></span>
               </button>
-
               <div className={`mega-menu ${isHomeMenuOpen ? "is-open" : ""}`}>
                 <div className="mega-menu__grid">
                   {homeMenuItems.map((item) => (
@@ -449,31 +304,20 @@ function AboutUs() {
               </div>
             </div>
 
-            <div
-              className="subbar__menu-item"
-              onMouseEnter={openShopMenu}
-              onMouseLeave={closeMenus}
-            >
-              <button
-                className={`subbar__menu-btn ${isShopMenuOpen ? "is-active" : ""}`}
-                type="button"
-              >
+            <div className="subbar__menu-item" onMouseEnter={openShopMenu} onMouseLeave={closeMenus}>
+              <button className={`subbar__menu-btn ${isShopMenuOpen ? "is-active" : ""}`} type="button">
                 SHOP <span><i className="fa fa-chevron-down" aria-hidden="true"></i></span>
               </button>
-
               <div className={`shop-menu ${isShopMenuOpen ? "is-open" : ""}`}>
                 <div className="shop-menu__layout">
                   <div className="shop-menu__columns">
                     {shopMenuColumns.map((column) => (
                       <div className="shop-menu__column" key={column.title}>
                         <h3>{column.title}</h3>
-                        {column.items.map((item) => (
-                          <p key={item}>{item}</p>
-                        ))}
+                        {column.items.map((item) => <p key={item}>{item}</p>)}
                       </div>
                     ))}
                   </div>
-
                   <div className="shop-menu__promo">
                     <img src={shopPromo} alt="Flat 30% off" />
                   </div>
@@ -481,31 +325,20 @@ function AboutUs() {
               </div>
             </div>
 
-            <div
-              className="subbar__menu-item"
-              onMouseEnter={openProductsMenu}
-              onMouseLeave={closeMenus}
-            >
-              <button
-                className={`subbar__menu-btn ${isProductsMenuOpen ? "is-active" : ""}`}
-                type="button"
-              >
+            <div className="subbar__menu-item" onMouseEnter={openProductsMenu} onMouseLeave={closeMenus}>
+              <button className={`subbar__menu-btn ${isProductsMenuOpen ? "is-active" : ""}`} type="button">
                 PRODUCTS <span><i className="fa fa-chevron-down" aria-hidden="true"></i></span>
               </button>
-
               <div className={`products-menu ${isProductsMenuOpen ? "is-open" : ""}`}>
                 <div className="products-menu__layout">
                   <div className="products-menu__columns">
                     {productMenuColumns.map((column) => (
                       <div className="products-menu__column" key={column.title}>
                         <h3>{column.title}</h3>
-                        {column.items.map((item) => (
-                          <p key={item}>{item}</p>
-                        ))}
+                        {column.items.map((item) => <p key={item}>{item}</p>)}
                       </div>
                     ))}
                   </div>
-
                   <div className="products-menu__promo">
                     <div className="products-menu__header">
                       <h3>Popular collection</h3>
@@ -514,15 +347,11 @@ function AboutUs() {
                         <span>&rarr;</span>
                       </div>
                     </div>
-
                     <div className="products-menu__cards">
                       <article className="products-menu__card">
-                        <div className="products-menu__image-box">
-                          <img src={productPromo1} alt="Pendant" />
-                        </div>
+                        <div className="products-menu__image-box"><img src={productPromo1} alt="Pendant" /></div>
                         <p>Rs. 22.00</p>
                       </article>
-
                       <article className="products-menu__card">
                         <div className="products-menu__image-box">
                           <span className="products-menu__sale">25%</span>
@@ -538,18 +367,10 @@ function AboutUs() {
 
             <button className="subbar__menu-btn" type="button" onClick={navigateToBlog}>BLOG</button>
 
-            <div
-              className="subbar__menu-item"
-              onMouseEnter={openPagesMenu}
-              onMouseLeave={closeMenus}
-            >
-              <button
-                className={`subbar__menu-btn ${isPagesMenuOpen ? "is-active" : ""}`}
-                type="button"
-              >
+            <div className="subbar__menu-item" onMouseEnter={openPagesMenu} onMouseLeave={closeMenus}>
+              <button className={`subbar__menu-btn ${isPagesMenuOpen ? "is-active" : ""}`} type="button">
                 PAGES <span><i className="fa fa-chevron-down" aria-hidden="true"></i></span>
               </button>
-
               <div className={`pages-menu ${isPagesMenuOpen ? "is-open" : ""}`}>
                 <div className="pages-menu__list">
                   {pagesMenuItems.map((item) => (
@@ -602,9 +423,7 @@ function AboutUs() {
                             navigateToTerms();
                           }
                         }}
-                      >
-                        <span>{item}</span>
-                      </a>
+                      ><span>{item}</span></a>
                     ) : (
                       <div className="pages-menu__item pages-menu__item--nested" key={item.label}>
                         <a
@@ -624,11 +443,20 @@ function AboutUs() {
                           <span>{item.label}</span>
                           <i className="fa fa-angle-right" aria-hidden="true"></i>
                         </a>
-
                         <div className="pages-submenu">
                           {item.children.map((child) => (
                             <a
-                              href={child === "About Us" ? "/about-us" : child === "About Us 2" ? "/about-us-2" : child === "Contact" ? "/contact-us" : child === "Contact 2" ? "/contact-us-2" : "/"}
+                              href={
+                                child === "About Us"
+                                  ? "/about-us"
+                                  : child === "About Us 2"
+                                    ? "/about-us-2"
+                                    : child === "Contact"
+                                      ? "/contact-us"
+                                      : child === "Contact 2"
+                                        ? "/contact-us-2"
+                                        : "/"
+                              }
                               key={child}
                               onClick={(event) => {
                                 if (child === "About Us") {
@@ -665,9 +493,7 @@ function AboutUs() {
           </div>
 
           <div className="subbar__try">
-            <span className="subbar__icon">
-              <HomeOutlineIcon />
-            </span>
+            <span className="subbar__icon"><HomeOutlineIcon /></span>
             <span>FREE TRY AT HOME</span>
           </div>
         </div>
@@ -677,152 +503,77 @@ function AboutUs() {
         className="collection-breadcrumb"
         style={{ backgroundImage: `linear-gradient(rgba(64, 47, 28, 0.28), rgba(64, 47, 28, 0.28)), url(${breadcrumbImage})` }}
       >
-        <p>HOME - ABOUT US</p>
-        <h1>ABOUT US</h1>
+        <p>HOME - SHIPPING & RETURN</p>
+        <h1>Shipping & Return</h1>
       </section>
 
-      <section className="about-story-section">
-        <div className="about-story-section__header">
-          <p>SINCE 1982 OUR STORY</p>
-          <h2>Our about story</h2>
+      <section className="shipping-policy-layout">
+        <div className="shipping-policy-layout__column">
+          <h2>Returns</h2>
+          <p>
+            The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production. To this end, we have developed Inditex's The List program.
+          </p>
+
+          <ul>
+            <li>The Green to Wear 2.0 standard aims to minimize</li>
+            <li>The Green to Wear 2.0 standard aims to minimize</li>
+            <li>The Green to Wear 2.0 standard aims to minimize</li>
+            <li>To this end, we have developed Inditex's The List program.</li>
+          </ul>
+
+          <h2>Exchanges</h2>
+          <p>
+            The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production.
+          </p>
+
+          <p>
+            The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production. To this end, we have developed Inditex's The List program.
+          </p>
+
+          <ul>
+            <li>
+              <strong>We only replace items if they are defective or damaged:</strong>
+              <p>The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production.</p>
+            </li>
+            <li>
+              <strong>If the item wasn't marked as a gift when purchased:</strong>
+              <p>The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production.</p>
+            </li>
+          </ul>
         </div>
 
-        <div className="about-story-section__image-wrap">
-          <img
-            src={aboutStoryImage}
-            alt="Jewelry craftsmanship"
-            className="about-story-section__image"
-          />
-        </div>
-      </section>
+        <div className="shipping-policy-layout__column">
+          <h2>Refunds</h2>
+          <p>
+            The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production. To this end, we have developed Inditex's The List program.
+          </p>
 
-      <section className="about-highlights">
-        <div className="about-highlights__grid">
-          <article className="about-highlights__item">
-            <h3>5,000+ HAPPY CUSTOMER</h3>
-            <p>
-              The customer&apos;s perception is your reality. Your most unhappy customers are
-              your greatest source of learning
-            </p>
-          </article>
+          <ul>
+            <li>The Green to Wear 2.0 standard aims to minimize</li>
+            <li>To this end, we have developed Inditex's The List program.</li>
+            <li>The Green to Wear 2.0 standard aims to minimize</li>
+            <li>To this end, we have developed Inditex's The List program.</li>
+          </ul>
 
-          <article className="about-highlights__item">
-            <h3>40 YEARS OF EXPERIENCES</h3>
-            <p>
-              Awards can give you a tremendous amount of encouragement to keep getting better,
-              no matter how young or old you are.
-            </p>
-          </article>
+          <h2>Shipping</h2>
+          <p>
+            The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production.
+          </p>
 
-          <article className="about-highlights__item">
-            <h3>40 YEARS OF EXPERIENCES</h3>
-            <p>Lorem Ipsum is simply dummy text printing and typesetting</p>
-          </article>
-        </div>
-      </section>
+          <p>
+            The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production. To this end, we have developed Inditex's The List program.
+          </p>
 
-      <section className="about-testimonial">
-        <div className="about-testimonial__panel">
-          <button type="button" className="about-testimonial__arrow about-testimonial__arrow--left" aria-label="Previous testimonial">
-            <ArrowLeftIcon />
-          </button>
-
-          <div className="about-testimonial__content">
-            <div className="about-testimonial__avatar">
-              <img src={aboutClientImage} alt="Miranda Joy" />
-            </div>
-            <p className="about-testimonial__eyebrow">WE LOVE OUR CLIENTS</p>
-            <h2>
-              It is a long established fact that a reader
-              <br />
-              will be distracted when looking at its
-              <br />
-              layout.
-            </h2>
-            <h3>MIRANDA JOY</h3>
-          </div>
-
-          <button type="button" className="about-testimonial__arrow about-testimonial__arrow--right" aria-label="Next testimonial">
-            <ArrowRightIcon />
-          </button>
-        </div>
-
-        <div className="about-testimonial__image-wrap">
-          <img src={aboutus2} alt="Happy customer" className="about-testimonial__image" />
-        </div>
-      </section>
-
-      <section className="about-quotes">
-        <div className="about-quotes__grid">
-          <article className="about-quotes__item">
-            <h3>
-             Fashion is what you’re offered four times a yea by designers 
-              <br />
-              fashions fade
-            </h3>
-            <p>
-              In early 1982, founder and creative direct or had the idea to<br/>
-               design a bag collection where comfort, fashion, and distinction <br/>are key.
-            </p>
-          </article>
-
-          <article className="about-quotes__item">
-            <h3>
-              I prefer to shock rather than to bore through repetition style
-              <br />
-              is eternal
-            </h3>
-            <p>
-             I have always believed that fashion was not only to make women <br/>more beautiful, but also to reassure them, give them confidence.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="about-team">
-        <div className="about-team__header">
-          <p>HIGHLY SKILLED</p>
-          <h2>Meet our teams</h2>
-        </div>
-
-        <div className="about-team__grid">
-          {aboutTeamMembers.map((member) => (
-            <article className="about-team__card" key={member.id}>
-              <div className="about-team__image-wrap">
-                <img src={member.image} alt={member.name} className="about-team__image" />
-              </div>
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="about-services">
-        <div className="about-services__grid">
-          <article className="about-services__item">
-            <div className="about-services__icon">
-              <i className="fa fa-truck" aria-hidden="true"></i>
-            </div>
-            <h3>FAST SHIPPING</h3>
-            <p>Free Shipping starts now! No minimums. No coupon required.</p>
-          </article>
-
-          <article className="about-services__item">
-            <div className="about-services__icon">
-              <i className="fa fa-refresh" aria-hidden="true"></i>
-            </div>
-            <h3>EASY RETURNS</h3>
-            <p>Do everything with a good heart and expect nothing in return</p>
-          </article>
-
-          <article className="about-services__item">
-            <div className="about-services__icon">
-              <i className="fa fa-usd" aria-hidden="true"></i>
-            </div>
-            <h3>100% MONEY SECURE</h3>
-            <p>100% MONEY SECURE</p>
-          </article>
+          <ul>
+            <li>
+              <strong>To return your product:</strong>
+              <p>The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production.</p>
+            </li>
+            <li>
+              <strong>Depending on where you live:</strong>
+              <p>The Green to Wear 2.0 standard aims to minimize the environmental impact of textile production.</p>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -854,16 +605,16 @@ function AboutUs() {
               <h3>Information</h3>
               <a href="/">About us</a>
               <a href="/">Contact us</a>
-              <a href="/">Faq&apos;s</a>
+              <a href="/faqs" onClick={(event) => { event.preventDefault(); navigateToFaqs(); }}>Faq&apos;s</a>
               <a href="/">News</a>
             </div>
 
             <div className="site-footer__column">
               <h3>Privacy &amp; terms</h3>
-              <a href="/">Privacy policy</a>
-              <a href="/">Refund policy</a>
-              <a href="/">Shipping &amp; return</a>
-              <a href="/">Terms &amp; condition</a>
+              <a href="/privacy-policy" onClick={(event) => { event.preventDefault(); navigateToPrivacyPolicy(); }}>Privacy policy</a>
+              <a href="/refund" onClick={(event) => { event.preventDefault(); navigateToRefund(); }}>Refund policy</a>
+              <a href="/shipping" onClick={(event) => { event.preventDefault(); navigateToShipping(); }}>Shipping &amp; return</a>
+              <a href="/terms" onClick={(event) => { event.preventDefault(); navigateToTerms(); }}>Terms &amp; condition</a>
             </div>
 
             <div className="site-footer__column">
@@ -904,7 +655,7 @@ function AboutUs() {
         </div>
 
         <div className="site-footer__bottom">
-          <p>Copyright © 2026 by spacingtech</p>
+          <p>Copyright (c) 2026 by spacingtech</p>
 
           <div className="site-footer__payments">
             {footerPayments.map((item) => (
@@ -917,4 +668,4 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+export default Shipping;

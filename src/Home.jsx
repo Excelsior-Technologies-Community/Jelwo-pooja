@@ -708,6 +708,46 @@ function Home() {
     window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
+  const navigateToContactUs = () => {
+    window.history.pushState({}, "", "/contact-us");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  const navigateToContactUs2 = () => {
+    window.history.pushState({}, "", "/contact-us-2");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  const navigateToFaqs = () => {
+    window.history.pushState({}, "", "/faqs");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  const navigateToPrivacyPolicy = () => {
+    window.history.pushState({}, "", "/privacy-policy");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  const navigateToRefund = () => {
+    window.history.pushState({}, "", "/refund");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  const navigateToLocation = () => {
+    window.history.pushState({}, "", "/location");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  const navigateToShipping = () => {
+    window.history.pushState({}, "", "/shipping");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  const navigateToTerms = () => {
+    window.history.pushState({}, "", "/terms");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
   return (
     <main className="page-shell">
       {isCartOpen && (
@@ -1010,17 +1050,70 @@ function Home() {
                 <div className="pages-menu__list">
                   {pagesMenuItems.map((item) => (
                     typeof item === "string" ? (
-                      <a href="/" key={item}>
+                      <a
+                        href={
+                          item === "Faq's"
+                            ? "/faqs"
+                            : item === "Privacy policy"
+                              ? "/privacy-policy"
+                              : item === "Refund policy"
+                                ? "/refund"
+                                : item === "Store location"
+                                  ? "/location"
+                                  : item === "Shipping & return"
+                                    ? "/shipping"
+                                    : item === "Terms & condition"
+                                      ? "/terms"
+                                      : "/"
+                        }
+                        key={item}
+                        onClick={(event) => {
+                          if (item === "Faq's") {
+                            event.preventDefault();
+                            navigateToFaqs();
+                          }
+
+                          if (item === "Privacy policy") {
+                            event.preventDefault();
+                            navigateToPrivacyPolicy();
+                          }
+
+                          if (item === "Refund policy") {
+                            event.preventDefault();
+                            navigateToRefund();
+                          }
+
+                          if (item === "Store location") {
+                            event.preventDefault();
+                            navigateToLocation();
+                          }
+
+                          if (item === "Shipping & return") {
+                            event.preventDefault();
+                            navigateToShipping();
+                          }
+
+                          if (item === "Terms & condition") {
+                            event.preventDefault();
+                            navigateToTerms();
+                          }
+                        }}
+                      >
                         <span>{item}</span>
                       </a>
                     ) : (
                       <div className="pages-menu__item pages-menu__item--nested" key={item.label}>
                         <a
-                          href={item.label === "About Us" ? "/about-us" : "/"}
+                          href={item.label === "About Us" ? "/about-us" : item.label === "Contact Us" ? "/contact-us" : "/"}
                           onClick={(event) => {
                             if (item.label === "About Us") {
                               event.preventDefault();
                               navigateToAboutUs();
+                            }
+
+                            if (item.label === "Contact Us") {
+                              event.preventDefault();
+                              navigateToContactUs();
                             }
                           }}
                         >
@@ -1031,7 +1124,7 @@ function Home() {
                         <div className="pages-submenu">
                           {item.children.map((child) => (
                             <a
-                              href={child === "About Us" ? "/about-us" : child === "About Us 2" ? "/about-us-2" : "/"}
+                              href={child === "About Us" ? "/about-us" : child === "About Us 2" ? "/about-us-2" : child === "Contact" ? "/contact-us" : child === "Contact 2" ? "/contact-us-2" : "/"}
                               key={child}
                               onClick={(event) => {
                                 if (child === "About Us") {
@@ -1042,6 +1135,16 @@ function Home() {
                                 if (child === "About Us 2") {
                                   event.preventDefault();
                                   navigateToAboutUs2();
+                                }
+
+                                if (child === "Contact") {
+                                  event.preventDefault();
+                                  navigateToContactUs();
+                                }
+
+                                if (child === "Contact 2") {
+                                  event.preventDefault();
+                                  navigateToContactUs2();
                                 }
                               }}
                             >

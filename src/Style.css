@@ -3641,6 +3641,651 @@ input {
   right: 22px;
 }
 
+.contact-support {
+  padding: 72px 30px 96px;
+  background: #ffffff;
+}
+
+.contact-support__header {
+  text-align: center;
+  margin: 0 0 44px;
+}
+
+.contact-support__header h2 {
+  margin: 0;
+  color: #2a2724;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.contact-support__grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.contact-support__card {
+  text-align: center;
+  padding: 12px 18px;
+}
+
+.contact-support__icon {
+  width: 118px;
+  height: 118px;
+  margin: 0 auto 26px;
+  border-radius: 50%;
+  background: #f5f2ee;
+  display: grid;
+  place-items: center;
+}
+
+.contact-support__icon svg {
+  width: 34px;
+  height: 34px;
+  color: #b18460;
+}
+
+.contact-support__card h3 {
+  margin: 0 0 12px;
+  color: #2d2d2d;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.contact-support__card p {
+  margin: 0;
+  color: #817b76;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.contact-showcase {
+  padding: 0;
+  background: #f4f0ec;
+}
+
+.contact-showcase__image-wrap {
+  width: 100%;
+}
+
+.contact-showcase__image {
+  display: block;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+.contact-showcase__panel {
+  max-width: 1280px;
+  margin: -92px auto 0;
+  padding: 72px 40px 86px;
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-showcase__header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.contact-showcase__header h2 {
+  margin: 0;
+  color: #2a2724;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.contact-showcase__locations-wrap {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  gap: 24px;
+  align-items: center;
+}
+
+.contact-showcase__arrow {
+  width: 56px;
+  height: 56px;
+  border: 0;
+  background: transparent;
+  color: #8a857f;
+  font-size: 2.2rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.contact-showcase__locations {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.contact-showcase__location {
+  text-align: center;
+}
+
+.contact-showcase__flag {
+  width: 74px;
+  height: 48px;
+  margin-bottom: 26px;
+  display: grid;
+  place-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-showcase__flag img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.contact-showcase__address {
+  margin: 0 0 24px;
+  color: #817b76;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.contact-showcase__detail {
+  margin: 0 0 8px;
+  color: #1f1f1f;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.contact-showcase__location h3 {
+  margin: 28px 0 0;
+  color: #b18460;
+  font-size: 1.95rem;
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.contact-form-block {
+  padding: 64px 30px 96px;
+  background: #f4f0ec;
+}
+
+.contact-form-block--white {
+  background: #ffffff;
+}
+
+.contact-form-block__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.contact-form-block__inner h2 {
+  margin: 0 0 42px;
+  text-align: center;
+  color: #2a2724;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.contact-form-block__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.contact-form-block__fields,
+.contact-form-block__message {
+  display: grid;
+  gap: 22px;
+}
+
+.contact-form-block input,
+.contact-form-block textarea {
+  width: 100%;
+  border: 1px solid #e2dcd4;
+  background: #ffffff;
+  color: #6f6a66;
+  font-size: 1rem;
+  padding: 18px 20px;
+  outline: none;
+}
+
+.contact-form-block textarea {
+  min-height: 210px;
+  resize: vertical;
+}
+
+.contact-form-block__checkbox {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  color: #7a7671;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.contact-form-block__checkbox input {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  padding: 0;
+}
+
+.contact-form-block__message button {
+  justify-self: start;
+  min-width: 208px;
+  border: 0;
+  border-radius: 999px;
+  background: #b18460;
+  color: #ffffff;
+  padding: 17px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.contact-info-panel {
+  padding: 56px 30px 96px;
+  background: #ffffff;
+}
+
+.contact-info-panel__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  gap: 68px;
+  align-items: center;
+}
+
+.contact-info-panel__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 540px;
+  object-fit: cover;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.contact-info-panel__media {
+  overflow: hidden;
+}
+
+.contact-info-panel__media:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.98);
+}
+
+.contact-info-panel__eyebrow {
+  margin: 0 0 18px;
+  color: #b18460;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.contact-info-panel__content h2 {
+  margin: 0 0 42px;
+  color: #2a2724;
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.contact-info-panel__content {
+  padding-left: 24px;
+}
+
+.contact-info-panel__item {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 34px;
+}
+
+.contact-info-panel__icon {
+  width: 36px;
+  height: 36px;
+  color: #242424;
+}
+
+.contact-info-panel__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.contact-info-panel__item h3 {
+  margin: 0 0 8px;
+  color: #242424;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.contact-info-panel__item p {
+  margin: 0;
+  color: #7b7774;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.contact-info-panel__socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.contact-info-panel__socials a {
+  color: #242424;
+  font-size: 1.45rem;
+  text-decoration: none;
+}
+
+.contact-two-panel {
+  padding: 56px 30px 96px;
+  background: #ffffff;
+}
+
+.contact-two-panel__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+  gap: 76px;
+  align-items: center;
+}
+
+.contact-two-panel__media {
+  overflow: hidden;
+}
+
+.contact-two-panel__media img {
+  display: block;
+  width: 100%;
+  min-height: 540px;
+  object-fit: cover;
+}
+
+.contact-two-panel__content {
+  padding-right: 18px;
+}
+
+.contact-two-panel__eyebrow {
+  margin: 0 0 18px;
+  color: #b18460;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.contact-two-panel__content h2 {
+  margin: 0 0 42px;
+  color: #2a2724;
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.contact-two-panel__item {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  margin-bottom: 34px;
+}
+
+.contact-two-panel__icon {
+  width: 36px;
+  height: 36px;
+  color: #2a2724;
+}
+
+.contact-two-panel__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.contact-two-panel__item h3 {
+  margin: 0 0 8px;
+  color: #242424;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.contact-two-panel__item p {
+  margin: 0;
+  max-width: 310px;
+  color: #7b7774;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.contact-two-panel__socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.contact-two-panel__socials a {
+  color: #88807a;
+  font-size: 1.35rem;
+  text-decoration: none;
+}
+
+.contact-two-benefits {
+  max-width: 1280px;
+  margin: 56px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+  text-align: center;
+}
+
+.contact-two-benefits__item h3 {
+  margin: 0 0 16px;
+  color: #1f1720;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.contact-two-benefits__item p {
+  margin: 0 auto;
+  max-width: 360px;
+  color: #7b7774;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.contact-two-map {
+  max-width: 1280px;
+  margin: 64px auto 0;
+}
+
+.contact-two-map iframe {
+  display: block;
+  width: 100%;
+  height: 500px;
+  border: 0;
+}
+
+.faq-layout {
+  padding: 56px 30px 96px;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 60px;
+  align-items: start;
+}
+
+.faq-layout__sidebar {
+  padding-right: 36px;
+  border-right: 1px solid #e9e2da;
+}
+
+.faq-layout__eyebrow {
+  margin: 0 0 18px;
+  color: #b18460;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.faq-layout__category {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 22px;
+  border: 0;
+  background: transparent;
+  color: #0f2340;
+  text-align: left;
+  font-size: clamp(1.4rem, 2vw, 2.3rem);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.faq-layout__category:not(.is-active) {
+  color: #0f2340;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.faq-layout__content {
+  min-width: 0;
+}
+
+.faq-section + .faq-section {
+  margin-top: 60px;
+}
+
+.faq-section h2 {
+  margin: 0 0 34px;
+  color: #0f2340;
+  font-size: clamp(2.1rem, 3vw, 3.1rem);
+  font-weight: 700;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ece4dc;
+}
+
+.faq-item__question {
+  width: 100%;
+  padding: 26px 0;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: #1f1f1f;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.faq-item__icon {
+  flex: 0 0 auto;
+  color: #1f1f1f;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.faq-item__answer {
+  margin: -2px 0 24px;
+  max-width: 980px;
+  color: #7b7774;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.refund-policy-layout,
+.shipping-policy-layout,
+.terms-policy-layout {
+  padding: 56px 30px 96px;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 74px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.refund-policy-layout__column p,
+.shipping-policy-layout__column p,
+.terms-policy-layout__column p {
+  margin: 0 0 30px;
+  color: #87827d;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.refund-policy-layout__column a,
+.shipping-policy-layout__column a,
+.terms-policy-layout__column a {
+  color: #b18460;
+  text-decoration: none;
+}
+
+.refund-policy-layout__column h2,
+.shipping-policy-layout__column h2,
+.terms-policy-layout__column h2 {
+  margin: 0 0 22px;
+  color: #122746;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.refund-policy-layout__column ul,
+.shipping-policy-layout__column ul,
+.terms-policy-layout__column ul {
+  margin: 0 0 28px;
+  padding-left: 14px;
+}
+
+.refund-policy-layout__column li,
+.shipping-policy-layout__column li,
+.terms-policy-layout__column li {
+  margin-bottom: 18px;
+  color: #222222;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.refund-policy-layout__column li strong,
+.shipping-policy-layout__column li strong,
+.terms-policy-layout__column li strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #1f1f1f;
+  font-weight: 700;
+}
+
+.refund-policy-layout__column li p,
+.shipping-policy-layout__column li p,
+.terms-policy-layout__column li p {
+  margin: 0;
+}
+
+
+
 .collection-layout {
   padding: 34px 24px 48px;
   display: grid;
@@ -4318,6 +4963,63 @@ input {
     min-height: 320px;
   }
 
+  .contact-support__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-showcase__locations {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-showcase__locations-wrap {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 16px;
+  }
+
+  .contact-showcase__arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 1.8rem;
+  }
+
+  .contact-form-block__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info-panel__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .contact-two-panel__inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .contact-two-benefits {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .faq-layout__sidebar {
+    padding-right: 0;
+    padding-bottom: 12px;
+    border-right: 0;
+    border-bottom: 1px solid #e9e2da;
+  }
+
+  .refund-policy-layout,
+  .shipping-policy-layout,
+  .terms-policy-layout {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
   .collection-layout {
     grid-template-columns: 1fr;
   }
@@ -4369,6 +5071,176 @@ input {
 
   .about-two-testimonial {
     padding: 0 16px 0;
+  }
+
+  .contact-support {
+    padding: 46px 16px 64px;
+  }
+
+  .contact-showcase {
+    padding: 0;
+  }
+
+  .contact-showcase__image {
+    height: 300px;
+  }
+
+  .contact-showcase__panel {
+    margin-top: -42px;
+    padding: 42px 20px 50px;
+  }
+
+  .contact-showcase__header {
+    margin-bottom: 30px;
+  }
+
+  .contact-showcase__locations {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .contact-showcase__locations-wrap {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contact-showcase__arrow {
+    display: none;
+  }
+
+  .contact-showcase__flag {
+    width: 68px;
+    height: 44px;
+    margin-bottom: 18px;
+  }
+
+  .contact-showcase__location h3 {
+    font-size: 1.7rem;
+  }
+
+  .contact-form-block {
+    padding: 42px 16px 64px;
+  }
+
+  .contact-form-block__inner h2 {
+    margin-bottom: 28px;
+  }
+
+  .contact-form-block__message button {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .contact-info-panel {
+    padding: 42px 16px 64px;
+  }
+
+  .contact-info-panel__media img {
+    min-height: 320px;
+  }
+
+  .contact-info-panel__content h2 {
+    margin-bottom: 28px;
+  }
+
+  .contact-info-panel__content {
+    padding-left: 0;
+  }
+
+  .contact-info-panel__item {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+
+  .contact-info-panel__icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .contact-two-panel {
+    padding: 42px 16px 64px;
+  }
+
+  .contact-two-panel__media img {
+    min-height: 320px;
+  }
+
+  .contact-two-panel__content {
+    padding-right: 0;
+  }
+
+  .contact-two-panel__content h2 {
+    margin-bottom: 28px;
+  }
+
+  .contact-two-panel__item {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+
+  .contact-two-panel__icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .contact-two-benefits {
+    margin-top: 42px;
+  }
+
+  .contact-two-benefits__item h3 {
+    font-size: 1.35rem;
+  }
+
+  .contact-two-map {
+    margin-top: 42px;
+  }
+
+  .contact-two-map iframe {
+    height: 320px;
+  }
+
+  .faq-layout {
+    padding: 42px 16px 64px;
+  }
+
+  .refund-policy-layout,
+  .shipping-policy-layout,
+  .terms-policy-layout {
+    padding: 42px 16px 64px;
+  }
+
+  .refund-policy-layout__column h2,
+  .shipping-policy-layout__column h2,
+  .terms-policy-layout__column h2 {
+    font-size: 1rem;
+  }
+
+  .faq-layout__category {
+    font-size: 1.8rem;
+  }
+
+  .faq-layout__category:not(.is-active) {
+    font-size: 1rem;
+  }
+
+  .faq-section + .faq-section {
+    margin-top: 42px;
+  }
+
+  .faq-section h2 {
+    margin-bottom: 24px;
+    font-size: 2rem;
+  }
+
+  .faq-item__question {
+    padding: 20px 0;
+    font-size: 0.98rem;
+  }
+
+  .faq-item__icon {
+    font-size: 1.7rem;
   }
 
   .about-two-story__intro {
@@ -4424,6 +5296,16 @@ input {
 
   .about-two-testimonial__arrow--right {
     right: 12px;
+  }
+
+  .contact-support__header {
+    margin-bottom: 30px;
+  }
+
+  .contact-support__icon {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 20px;
   }
 
   .collection-breadcrumb {

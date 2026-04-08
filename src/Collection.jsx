@@ -469,6 +469,42 @@ function Collection() {
     navigateTo("/about-us-2");
   };
 
+  const navigateToContactUs = () => {
+    navigateTo("/contact-us");
+  };
+
+  const navigateToContactUs2 = () => {
+    navigateTo("/contact-us-2");
+  };
+
+  const navigateToFaqs = () => {
+    navigateTo("/faqs");
+  };
+
+  const navigateToPrivacyPolicy = () => {
+    navigateTo("/privacy-policy");
+  };
+
+  const navigateToRefund = () => {
+    navigateTo("/refund");
+  };
+
+  const navigateToLocation = () => {
+    navigateTo("/location");
+  };
+
+  const navigateToShipping = () => {
+    navigateTo("/shipping");
+  };
+
+  const navigateToTerms = () => {
+    navigateTo("/terms");
+  };
+
+  const navigateToBlog = () => {
+    navigateTo("/blog");
+  };
+
   const selectedAvailabilityCount = Object.values(availability).filter(Boolean).length;
 
   const toggleAvailability = (key) => {
@@ -695,7 +731,7 @@ function Collection() {
               </div>
             </div>
 
-            <button className="subbar__menu-btn" type="button">BLOG</button>
+            <button className="subbar__menu-btn" type="button" onClick={navigateToBlog}>BLOG</button>
             <div
               className="subbar__menu-item"
               onMouseEnter={openPagesMenu}
@@ -712,17 +748,70 @@ function Collection() {
                 <div className="pages-menu__list">
                   {pagesMenuItems.map((item) => (
                     typeof item === "string" ? (
-                      <a href="/" key={item}>
+                      <a
+                        href={
+                          item === "Faq's"
+                            ? "/faqs"
+                            : item === "Privacy policy"
+                              ? "/privacy-policy"
+                              : item === "Refund policy"
+                                ? "/refund"
+                                : item === "Store location"
+                                  ? "/location"
+                                  : item === "Shipping & return"
+                                    ? "/shipping"
+                                    : item === "Terms & condition"
+                                      ? "/terms"
+                                      : "/"
+                        }
+                        key={item}
+                        onClick={(event) => {
+                          if (item === "Faq's") {
+                            event.preventDefault();
+                            navigateToFaqs();
+                          }
+
+                          if (item === "Privacy policy") {
+                            event.preventDefault();
+                            navigateToPrivacyPolicy();
+                          }
+
+                          if (item === "Refund policy") {
+                            event.preventDefault();
+                            navigateToRefund();
+                          }
+
+                          if (item === "Store location") {
+                            event.preventDefault();
+                            navigateToLocation();
+                          }
+
+                          if (item === "Shipping & return") {
+                            event.preventDefault();
+                            navigateToShipping();
+                          }
+
+                          if (item === "Terms & condition") {
+                            event.preventDefault();
+                            navigateToTerms();
+                          }
+                        }}
+                      >
                         <span>{item}</span>
                       </a>
                     ) : (
                       <div className="pages-menu__item pages-menu__item--nested" key={item.label}>
                         <a
-                          href={item.label === "About Us" ? "/about-us" : "/"}
+                          href={item.label === "About Us" ? "/about-us" : item.label === "Contact Us" ? "/contact-us" : "/"}
                           onClick={(event) => {
                             if (item.label === "About Us") {
                               event.preventDefault();
                               navigateToAboutUs();
+                            }
+
+                            if (item.label === "Contact Us") {
+                              event.preventDefault();
+                              navigateToContactUs();
                             }
                           }}
                         >
@@ -733,7 +822,7 @@ function Collection() {
                         <div className="pages-submenu">
                           {item.children.map((child) => (
                             <a
-                              href={child === "About Us" ? "/about-us" : child === "About Us 2" ? "/about-us-2" : "/"}
+                              href={child === "About Us" ? "/about-us" : child === "About Us 2" ? "/about-us-2" : child === "Contact" ? "/contact-us" : child === "Contact 2" ? "/contact-us-2" : "/"}
                               key={child}
                               onClick={(event) => {
                                 if (child === "About Us") {
@@ -744,6 +833,16 @@ function Collection() {
                                 if (child === "About Us 2") {
                                   event.preventDefault();
                                   navigateToAboutUs2();
+                                }
+
+                                if (child === "Contact") {
+                                  event.preventDefault();
+                                  navigateToContactUs();
+                                }
+
+                                if (child === "Contact 2") {
+                                  event.preventDefault();
+                                  navigateToContactUs2();
                                 }
                               }}
                             >
