@@ -441,7 +441,7 @@ function Blog() {
               <UserPlusIcon />
             </button>
 
-            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist">
+            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist" onClick={() => window.location.assign("/wishlist")}>
               <HeartIcon />
               <span>(0)</span>
             </button>

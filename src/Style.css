@@ -1307,6 +1307,14 @@ input {
   color: #ffffff;
 }
 
+.jewelry-card__hover-actions button.is-active,
+.trending-card__hover-actions button.is-active,
+.collection-product-card__hover-actions button.is-active {
+  background: rgba(33, 31, 30, 0.95);
+  border-color: rgba(33, 31, 30, 0.95);
+  color: #ffffff;
+}
+
 .jewelry-card__countdown {
   width: fit-content;
   margin: 0 auto;
@@ -3059,6 +3067,170 @@ input {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
+}
+
+.wishlist-page {
+  padding: 56px 30px 96px;
+  background: #ffffff;
+}
+
+.wishlist-page__header {
+  width: min(100%, 1280px);
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.wishlist-page__header p {
+  margin: 0;
+  color: #7e746c;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.wishlist-page__empty {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: 24px 24px 8px;
+  text-align: center;
+}
+
+.wishlist-page__empty p {
+  margin: 0;
+  color: #7e746c;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.wishlist-page__empty button {
+  border: 0;
+  background: transparent;
+  color: #b18460;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.wishlist-page__grid {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.wishlist-page__card {
+  background: #ffffff;
+  border: 1px solid #f0ebe5;
+  overflow: hidden;
+}
+
+.wishlist-page__image-area {
+  position: relative;
+  min-height: 285px;
+  background: #fbfbfb;
+  padding: 18px 16px 26px;
+  display: grid;
+  place-items: center;
+}
+
+.wishlist-page__discount {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #2dbc61;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px 11px;
+}
+
+.wishlist-page__remove-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: #1f1d1b;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.wishlist-page__remove-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.wishlist-page__image {
+  width: min(100%, 210px);
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.wishlist-page__content {
+  padding: 24px 18px 22px;
+  border-top: 1px solid #ece6df;
+  text-align: center;
+}
+
+.wishlist-page__content p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #9a7f62;
+}
+
+.wishlist-page__content h3 {
+  margin: 0 0 12px;
+  color: #1f1d1b;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.wishlist-page__price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  color: #b08858;
+  font-size: 16px;
+}
+
+.wishlist-page__price del {
+  color: #7f7a75;
+}
+
+.wishlist-page__actions {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.wishlist-page__cart-btn,
+.wishlist-page__remove-btn {
+  min-height: 46px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wishlist-page__cart-btn {
+  border: 0;
+  background: #b88d68;
+  color: #ffffff;
+}
+
+.wishlist-page__remove-btn {
+  border: 1px solid #d8d2cb;
+  background: #ffffff;
+  color: #7a746e;
 }
 
 .about-story-section {
@@ -5178,6 +5350,11 @@ input {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .wishlist-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
   .bottom-promo-section {
     padding: 12px 20px 36px;
     grid-template-columns: 1fr;
@@ -5472,6 +5649,27 @@ input {
   .collection-layout {
     padding: 24px 16px 32px;
     gap: 24px;
+  }
+
+  .wishlist-page {
+    padding: 42px 16px 64px;
+  }
+
+  .wishlist-page__header {
+    margin-bottom: 22px;
+  }
+
+  .wishlist-page__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .wishlist-page__empty {
+    padding: 18px 0 4px;
+  }
+
+  .wishlist-page__image-area {
+    min-height: 240px;
   }
 
   .collection-promo {

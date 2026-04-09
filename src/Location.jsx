@@ -14,6 +14,10 @@ import breadcrumbImage from "./assets/jewelry-3-breadcrumb.jpg";
 import location1 from "./assets/location1.webp";
 import location2 from "./assets/location2.webp";
 import location3 from "./assets/location3.webp";
+import visaCard from "./assets/visa.png";
+import mastercardCard from "./assets/mastercard.png";
+import paypalCard from "./assets/paypal.png";
+import discoverCard from "./assets/discover.png";
 function SearchIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -170,6 +174,21 @@ const pagesMenuItems = [
   "Terms & condition",
 ];
 
+const footerSocials = [
+  { id: "facebook", label: "Facebook", iconClass: "fa-brands fa-facebook-f" },
+  { id: "x", label: "X", iconClass: "fa-brands fa-x-twitter" },
+  { id: "instagram", label: "Instagram", iconClass: "fa-brands fa-instagram" },
+  { id: "pinterest", label: "Pinterest", iconClass: "fa-brands fa-pinterest-p" },
+  { id: "youtube", label: "Youtube", iconClass: "fa-brands fa-youtube" },
+];
+
+const footerPayments = [
+  { id: "visa", image: visaCard, alt: "Visa" },
+  { id: "mastercard", image: mastercardCard, alt: "Mastercard" },
+  { id: "paypal", image: paypalCard, alt: "Paypal" },
+  { id: "discover", image: discoverCard, alt: "Discover" },
+];
+
 function Location() {
   const [isHomeMenuOpen, setIsHomeMenuOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
@@ -263,7 +282,7 @@ function Location() {
               <span className="search__icon"><SearchIcon /></span>
             </label>
             <button className="icon-link" type="button" aria-label="Account"><UserPlusIcon /></button>
-            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist"><HeartIcon /><span>(0)</span></button>
+            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist" onClick={() => window.location.assign("/wishlist")}><HeartIcon /><span>(0)</span></button>
             <button className="icon-link icon-link--count" type="button" aria-label="Cart"><BagIcon /><span>(0)</span></button>
           </div>
         </div>
@@ -654,6 +673,94 @@ function Location() {
           </div>
         </div>
       </section>
+
+      <footer className="site-footer">
+        <div className="site-footer__top">
+          <div className="site-footer__brand">
+            <img src={logo} alt="Jelwo" className="site-footer__logo" />
+
+            <div className="site-footer__contact-list">
+              <div className="site-footer__contact-item">
+                <span className="site-footer__contact-icon"><LocationPinIcon /></span>
+                <p>55 East 10th street, new york, ny 10003, united states</p>
+              </div>
+
+              <div className="site-footer__contact-item">
+                <span className="site-footer__contact-icon"><PhoneIcon /></span>
+                <p>+ (220) 123 456 7890</p>
+              </div>
+
+              <div className="site-footer__contact-item">
+                <span className="site-footer__contact-icon"><MailIcon /></span>
+                <p>demo123546@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="site-footer__links">
+            <div className="site-footer__column">
+              <h3>Information</h3>
+              <a href="/">About us</a>
+              <a href="/">Contact us</a>
+              <a href="/">Faq&apos;s</a>
+              <a href="/">News</a>
+            </div>
+
+            <div className="site-footer__column">
+              <h3>Privacy &amp; terms</h3>
+              <a href="/">Privacy policy</a>
+              <a href="/">Refund policy</a>
+              <a href="/">Shipping &amp; return</a>
+              <a href="/">Terms &amp; condition</a>
+            </div>
+
+            <div className="site-footer__column">
+              <h3>Category</h3>
+              <a href="/">Rings</a>
+              <a href="/">Earring</a>
+              <a href="/">Pendant</a>
+              <a href="/">Necklaces</a>
+              <a href="/">Bracelets</a>
+            </div>
+
+            <div className="site-footer__column">
+              <h3>Visit store</h3>
+              <p>Mon - sat : 10am - 11pm</p>
+              <p>Sun : 10am - 4pm</p>
+              <p>7 Days a week</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="site-footer__middle">
+          <div className="site-footer__socials">
+            {footerSocials.map((item) => (
+              <button type="button" key={item.id} aria-label={item.label}>
+                <i className={item.iconClass} aria-hidden="true"></i>
+              </button>
+            ))}
+          </div>
+
+          <div className="site-footer__subscribe">
+            <p>Subscribe and get 15% discount.</p>
+
+            <div className="site-footer__subscribe-form">
+              <input type="email" placeholder="Enter your email" />
+              <button type="button">SUBSCRIBE</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="site-footer__bottom">
+          <p>Copyright 2026 by spacingtech</p>
+
+          <div className="site-footer__payments">
+            {footerPayments.map((item) => (
+              <img key={item.id} src={item.image} alt={item.alt} />
+            ))}
+          </div>
+        </div>
+      </footer>
 
     </main>
   );

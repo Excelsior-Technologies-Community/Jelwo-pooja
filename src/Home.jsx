@@ -464,7 +464,7 @@ const watchShopReelsItems = [
   },
 ];
 
-function Home({ cartCount, onCartOpen, onAddToCart }) {
+function Home({ cartCount, wishlistCount, onCartOpen, onAddToCart, onToggleWishlist, isInWishlist }) {
   const [isHomeMenuOpen, setIsHomeMenuOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
@@ -706,6 +706,19 @@ function Home({ cartCount, onCartOpen, onAddToCart }) {
     window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
+  const toggleWishlistItem = (item) => {
+    onToggleWishlist({
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      oldPrice: item.oldPrice,
+      image: item.image,
+      discount: item.discount,
+      category: "JEWELRY",
+      variant: item.variant || "Gold",
+    });
+  };
+
   return (
     <main className="page-shell">
       <header className="topbar">
@@ -729,9 +742,9 @@ function Home({ cartCount, onCartOpen, onAddToCart }) {
               <UserPlusIcon />
             </button>
 
-            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist">
+            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist" onClick={() => window.location.assign("/wishlist")}>
               <HeartIcon />
-              <span>(0)</span>
+              <span>({wishlistCount})</span>
             </button>
 
             <button
@@ -1149,7 +1162,12 @@ function Home({ cartCount, onCartOpen, onAddToCart }) {
                   )}
 
                   <div className="jewelry-card__hover-actions">
-                    <button type="button" aria-label={`Add ${item.title} to wishlist`}>
+                    <button
+                      type="button"
+                      aria-label={`Add ${item.title} to wishlist`}
+                      className={isInWishlist(item.id) ? "is-active" : ""}
+                      onClick={() => toggleWishlistItem(item)}
+                    >
                       <HeartIcon />
                     </button>
                     <button type="button" aria-label={`View ${item.title}`}>
@@ -1299,7 +1317,12 @@ function Home({ cartCount, onCartOpen, onAddToCart }) {
                   )}
 
                   <div className="trending-card__hover-actions">
-                    <button type="button" aria-label={`Add ${item.title} to wishlist`}>
+                    <button
+                      type="button"
+                      aria-label={`Add ${item.title} to wishlist`}
+                      className={isInWishlist(item.id) ? "is-active" : ""}
+                      onClick={() => toggleWishlistItem(item)}
+                    >
                       <HeartIcon />
                     </button>
                     <button type="button" aria-label={`View ${item.title}`}>

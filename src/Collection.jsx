@@ -384,7 +384,7 @@ function getCartPrice(price) {
   return String(price).replace(/^From\s+/i, "");
 }
 
-function Collection({ cartCount, onCartOpen, onAddToCart }) {
+function Collection({ cartCount, wishlistCount, onCartOpen, onAddToCart, onToggleWishlist, isInWishlist }) {
   const [isHomeMenuOpen, setIsHomeMenuOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
@@ -552,6 +552,19 @@ function Collection({ cartCount, onCartOpen, onAddToCart }) {
     }));
   };
 
+  const toggleWishlistItem = (item) => {
+    onToggleWishlist({
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      oldPrice: item.oldPrice,
+      image: item.image,
+      discount: item.discount,
+      category: "JEWELRY",
+      variant: selectedProductOptions[item.id] ?? item.options[0],
+    });
+  };
+
   useEffect(() => {
     const timer = window.setInterval(() => {
       setCountdown((prev) => {
@@ -608,9 +621,9 @@ function Collection({ cartCount, onCartOpen, onAddToCart }) {
               <UserPlusIcon />
             </button>
 
-            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist">
+            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist" onClick={() => window.location.assign("/wishlist")}>
               <HeartIcon />
-              <span>(0)</span>
+              <span>({wishlistCount})</span>
             </button>
 
             <button
@@ -1098,7 +1111,12 @@ function Collection({ cartCount, onCartOpen, onAddToCart }) {
                     <img src={item.image} alt={item.title} className="collection-product-card__image" />
 
                     <div className="collection-product-card__hover-actions">
-                      <button type="button" aria-label={`Add ${item.title} to wishlist`}>
+                      <button
+                        type="button"
+                        aria-label={`Add ${item.title} to wishlist`}
+                        className={isInWishlist(item.id) ? "is-active" : ""}
+                        onClick={() => toggleWishlistItem(item)}
+                      >
                         <HeartIcon />
                       </button>
                       <button type="button" aria-label={`View ${item.title}`}>

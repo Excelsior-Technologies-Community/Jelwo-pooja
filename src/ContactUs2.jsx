@@ -272,7 +272,7 @@ function ContactUs2() {
               <span className="search__icon"><SearchIcon /></span>
             </label>
             <button className="icon-link" type="button" aria-label="Account"><UserPlusIcon /></button>
-            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist"><HeartIcon /><span>(0)</span></button>
+            <button className="icon-link icon-link--count" type="button" aria-label="Wishlist" onClick={() => window.location.assign("/wishlist")}><HeartIcon /><span>(0)</span></button>
             <button className="icon-link icon-link--count" type="button" aria-label="Cart"><BagIcon /><span>(0)</span></button>
           </div>
         </div>

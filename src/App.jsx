@@ -13,12 +13,14 @@ import PrivacyPolicy from "./PrivacyPolicy";
 import Refund from "./Refund";
 import Shipping from "./Shipping";
 import Terms from "./Terms";
+import Wishlist from "./Wishlist";
 
 function getPathname() {
   return window.location.pathname.toLowerCase();
 }
 
 const CART_STORAGE_KEY = "jelwo-cart-items";
+const WISHLIST_STORAGE_KEY = "jelwo-wishlist-items";
 
 function loadStoredCartItems() {
   if (typeof window === "undefined") {
@@ -40,6 +42,26 @@ function loadStoredCartItems() {
   }
 }
 
+function loadStoredWishlistItems() {
+  if (typeof window === "undefined") {
+    return [];
+  }
+
+  try {
+    const storedWishlistItems = window.localStorage.getItem(WISHLIST_STORAGE_KEY);
+
+    if (!storedWishlistItems) {
+      return [];
+    }
+
+    const parsedWishlistItems = JSON.parse(storedWishlistItems);
+
+    return Array.isArray(parsedWishlistItems) ? parsedWishlistItems : [];
+  } catch {
+    return [];
+  }
+}
+
 function parsePriceValue(price) {
   const normalizedPrice = String(price)
     .replace(/[^0-9.]/g, "")
@@ -52,6 +74,7 @@ function App() {
   const [pathname, setPathname] = useState(getPathname);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState(loadStoredCartItems);
+  const [wishlistItems, setWishlistItems] = useState(loadStoredWishlistItems);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -69,7 +92,12 @@ function App() {
     window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
   }, [cartItems]);
 
+  useEffect(() => {
+    window.localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(wishlistItems));
+  }, [wishlistItems]);
+
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const wishlistCount = wishlistItems.length;
   const cartSubtotal = cartItems.reduce(
     (total, item) => total + parsePriceValue(item.price) * item.quantity,
     0
@@ -107,49 +135,82 @@ function App() {
     setCartItems((prev) => prev.filter((item) => !(item.id === id && item.variant === variant)));
   };
 
-  const sharedCartProps = {
-    cartCount,
-    onCartOpen: () => setIsCartOpen(true),
-    onAddToCart: addToCart,
+  const addToWishlist = (item) => {
+    setWishlistItems((prev) => {
+      if (prev.some((wishlistItem) => wishlistItem.id === item.id)) {
+        return prev;
+      }
+
+      return [...prev, item];
+    });
   };
 
-  let page = <Home {...sharedCartProps} />;
+  const removeFromWishlist = (id) => {
+    setWishlistItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const toggleWishlist = (item) => {
+    setWishlistItems((prev) =>
+      prev.some((wishlistItem) => wishlistItem.id === item.id)
+        ? prev.filter((wishlistItem) => wishlistItem.id !== item.id)
+        : [...prev, item]
+    );
+  };
+
+  const isInWishlist = (id) => wishlistItems.some((item) => item.id === id);
+
+  const sharedPageProps = {
+    cartCount,
+    wishlistCount,
+    wishlistItems,
+    onCartOpen: () => setIsCartOpen(true),
+    onAddToCart: addToCart,
+    onAddToWishlist: addToWishlist,
+    onRemoveFromWishlist: removeFromWishlist,
+    onToggleWishlist: toggleWishlist,
+    isInWishlist,
+  };
+
+  let page = <Home {...sharedPageProps} />;
 
   if (pathname === "/collection") {
-    page = <Collection {...sharedCartProps} />;
+    page = <Collection {...sharedPageProps} />;
   }
   else if (pathname === "/blog") {
-    page = <Blog />;
+    page = <Blog {...sharedPageProps} />;
   }
   else if (pathname === "/about-us") {
-    page = <AboutUs />;
+    page = <AboutUs {...sharedPageProps} />;
   }
   else if (pathname === "/about-us-2") {
-    page = <AboutUs2 />;
+    page = <AboutUs2 {...sharedPageProps} />;
   }
   else if (pathname === "/contact-us") {
-    page = <ContactUs />;
+    page = <ContactUs {...sharedPageProps} />;
   }
   else if (pathname === "/contact-us-2") {
-    page = <ContactUs2 />;
+    page = <ContactUs2 {...sharedPageProps} />;
   }
   else if (pathname === "/faqs") {
-    page = <Faqs />;
+    page = <Faqs {...sharedPageProps} />;
   }
   else if (pathname === "/privacy-policy") {
-    page = <PrivacyPolicy />;
+    page = <PrivacyPolicy {...sharedPageProps} />;
   }
   else if (pathname === "/refund") {
-    page = <Refund />;
+    page = <Refund {...sharedPageProps} />;
   }
   else if (pathname === "/location") {
-    page = <Location />;
+    page = <Location {...sharedPageProps} />;
   }
   else if (pathname === "/shipping") {
-    page = <Shipping />;
+    page = <Shipping {...sharedPageProps} />;
   }
   else if (pathname === "/terms") {
-    page = <Terms />;
+    page = <Terms {...sharedPageProps} />;
+  }
+  else if (pathname === "/wishlist") {
+    page = <Wishlist {...sharedPageProps} />;
   }
 
   return (
