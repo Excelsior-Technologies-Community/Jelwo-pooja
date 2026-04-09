@@ -380,7 +380,11 @@ const collectionProducts = [
   },
 ];
 
-function Collection() {
+function getCartPrice(price) {
+  return String(price).replace(/^From\s+/i, "");
+}
+
+function Collection({ cartCount, onCartOpen, onAddToCart }) {
   const [isHomeMenuOpen, setIsHomeMenuOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
@@ -399,6 +403,9 @@ function Collection() {
   });
   const [productQuantities, setProductQuantities] = useState(
     Object.fromEntries(collectionProducts.map((item) => [item.id, 1]))
+  );
+  const [selectedProductOptions, setSelectedProductOptions] = useState(
+    Object.fromEntries(collectionProducts.map((item) => [item.id, item.options[0]]))
   );
   const closeTimerRef = useRef(null);
 
@@ -538,6 +545,13 @@ function Collection() {
     }));
   };
 
+  const updateProductOption = (id, option) => {
+    setSelectedProductOptions((prev) => ({
+      ...prev,
+      [id]: option,
+    }));
+  };
+
   useEffect(() => {
     const timer = window.setInterval(() => {
       setCountdown((prev) => {
@@ -599,9 +613,14 @@ function Collection() {
               <span>(0)</span>
             </button>
 
-            <button className="icon-link icon-link--count" type="button" aria-label="Cart">
+            <button
+              className="icon-link icon-link--count"
+              type="button"
+              aria-label="Cart"
+              onClick={onCartOpen}
+            >
               <BagIcon />
-              <span>(0)</span>
+              <span>({cartCount})</span>
             </button>
           </div>
         </div>
@@ -1120,7 +1139,11 @@ function Collection() {
 
                   <div className="collection-product-card__purchase">
                     <div className="collection-product-card__selectors">
-                      <select defaultValue={item.options[0]} aria-label={`${item.title} option`}>
+                      <select
+                        value={selectedProductOptions[item.id] ?? item.options[0]}
+                        aria-label={`${item.title} option`}
+                        onChange={(event) => updateProductOption(item.id, event.target.value)}
+                      >
                         {item.options.map((option) => (
                           <option key={option} value={option}>
                             {option}
@@ -1147,7 +1170,21 @@ function Collection() {
                       </div>
                     </div>
 
-                    <button type="button" className="collection-product-card__cart-btn">
+                    <button
+                      type="button"
+                      className="collection-product-card__cart-btn"
+                      onClick={() =>
+                        onAddToCart({
+                          id: item.id,
+                          title: item.title,
+                          price: getCartPrice(item.price),
+                          oldPrice: item.oldPrice,
+                          image: item.image,
+                          variant: selectedProductOptions[item.id] ?? item.options[0],
+                          quantity: productQuantities[item.id] ?? 1,
+                        })
+                      }
+                    >
                       ADD TO CART
                     </button>
                   </div>

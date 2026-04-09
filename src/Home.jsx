@@ -464,7 +464,7 @@ const watchShopReelsItems = [
   },
 ];
 
-function Home() {
+function Home({ cartCount, onCartOpen, onAddToCart }) {
   const [isHomeMenuOpen, setIsHomeMenuOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
@@ -472,8 +472,6 @@ function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [reelsIndex, setReelsIndex] = useState(0);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
   const [newJewelryQuantities, setNewJewelryQuantities] = useState(
     Object.fromEntries(newJewelryItems.map((item) => [item.id, 1]))
   );
@@ -492,7 +490,6 @@ function Home() {
     minutes: 50,
     seconds: 10,
   });
-  const [isInstructionsOpen, setIsInstructionsOpen] = useState(false);
   const closeTimerRef = useRef(null);
 
   const heroSlides = [
@@ -635,31 +632,6 @@ function Home() {
     return watchShopReelsItems[reelIndex];
   });
 
-  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-  const cartSubtotal = cartItems.reduce(
-    (total, item) => total + Number.parseFloat(item.price.replace(/[^\d.]/g, "")) * item.quantity,
-    0
-  );
-  const shippingRemaining = Math.max(85 - cartSubtotal, 0).toFixed(2);
-
-  const addToCart = ({ id, title, price, oldPrice, image, variant = "Gold", quantity = 1 }) => {
-    setCartItems((prev) => {
-      const existingItem = prev.find((item) => item.id === id && item.variant === variant);
-
-      if (existingItem) {
-        return prev.map((item) =>
-          item.id === id && item.variant === variant
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
-        );
-      }
-
-      return [...prev, { id, title, price, oldPrice, image, variant, quantity }];
-    });
-
-    setIsCartOpen(true);
-  };
-
   const updateNewJewelryQuantity = (id, change) => {
     setNewJewelryQuantities((prev) => ({
       ...prev,
@@ -672,20 +644,6 @@ function Home() {
       ...prev,
       [id]: Math.max(1, (prev[id] ?? 1) + change),
     }));
-  };
-
-  const updateCartQuantity = (id, variant, change) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id && item.variant === variant
-          ? { ...item, quantity: Math.max(1, item.quantity + change) }
-          : item
-      )
-    );
-  };
-
-  const removeCartItem = (id, variant) => {
-    setCartItems((prev) => prev.filter((item) => !(item.id === id && item.variant === variant)));
   };
 
   const navigateToCollection = () => {
@@ -750,129 +708,6 @@ function Home() {
 
   return (
     <main className="page-shell">
-      {isCartOpen && (
-        <button
-          type="button"
-          className="cart-drawer__backdrop"
-          aria-label="Close cart"
-          onClick={() => setIsCartOpen(false)}
-        ></button>
-      )}
-
-      <aside className={`cart-drawer ${isCartOpen ? "is-open" : ""}`}>
-        <div className="cart-drawer__promo">
-          New customers save 10% with code <strong>WELCOME10</strong>
-        </div>
-
-        <div className="cart-drawer__header">
-          <h2>
-            My shopping cart
-            <span className="cart-drawer__count">({cartCount})</span>
-          </h2>
-          <button type="button" aria-label="Close cart" onClick={() => setIsCartOpen(false)}>
-            &times;
-          </button>
-        </div>
-
-        <div className="cart-drawer__shipping">
-          <p>Spend Rs. {shippingRemaining} more and get free shipping!</p>
-          <div className="cart-drawer__progress">
-            <span style={{ width: `${Math.min((cartSubtotal / 85) * 100, 100)}%` }}></span>
-          </div>
-        </div>
-
-        <div className="cart-drawer__items">
-          {cartItems.length === 0 ? (
-            <p className="cart-drawer__empty">Your cart is empty.</p>
-          ) : (
-            cartItems.map((item) => (
-              <article className="cart-drawer__item" key={`${item.id}-${item.variant}`}>
-                <div className="cart-drawer__thumb">
-                  <img src={item.image} alt={item.title} />
-                </div>
-
-                <div className="cart-drawer__details">
-                  <h3>{item.title}</h3>
-                  <p className="cart-drawer__price">
-                    <span>{item.price}</span>
-                    {item.oldPrice && <del>{item.oldPrice}</del>}
-                  </p>
-                  {/^\d+$/.test(String(item.variant)) ? (
-                    <p className="cart-drawer__variant">
-                      Size: <span>{item.variant}</span>
-                    </p>
-                  ) : (
-                    <p className="cart-drawer__variant">
-                      Color: <span>{item.variant}</span>
-                    </p>
-                  )}
-
-                  <div className="cart-drawer__actions">
-                    <div className="cart-drawer__qty">
-                      <button
-                        type="button"
-                        aria-label="Decrease quantity"
-                        onClick={() => updateCartQuantity(item.id, item.variant, -1)}
-                      >
-                        -
-                      </button>
-                      <span>{item.quantity}</span>
-                      <button
-                        type="button"
-                        aria-label="Increase quantity"
-                        onClick={() => updateCartQuantity(item.id, item.variant, 1)}
-                      >
-                        +
-                      </button>
-                    </div>
-
-                    <button
-                      type="button"
-                      className="cart-drawer__remove"
-                      aria-label="Remove item"
-                      onClick={() => removeCartItem(item.id, item.variant)}
-                    >
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </div>
-              </article>
-            ))
-          )}
-        </div>
-
-        <div className="cart-drawer__instructions">
-          <button
-            type="button"
-            className="cart-drawer__instructions-toggle"
-            onClick={() => setIsInstructionsOpen((prev) => !prev)}
-          >
-            <span>Order special instructions</span>
-            <i className={`fa ${isInstructionsOpen ? "fa-chevron-up" : "fa-chevron-down"}`} aria-hidden="true"></i>
-          </button>
-
-          {isInstructionsOpen && (
-            <textarea
-              className="cart-drawer__instructions-input"
-              placeholder="Add a note for your order"
-            ></textarea>
-          )}
-        </div>
-
-        <div className="cart-drawer__footer">
-          <div className="cart-drawer__subtotal">
-            <strong>Subtotal</strong>
-            <span>Rs. {cartSubtotal.toFixed(2)}</span>
-          </div>
-          <p>Taxes, discounts and shipping calculated at checkout.</p>
-          <div className="cart-drawer__footer-actions">
-            <button type="button" className="cart-drawer__view-cart">VIEW CART</button>
-            <button type="button" className="cart-drawer__checkout">CHECKOUT</button>
-          </div>
-        </div>
-
-      </aside>
-
       <header className="topbar">
         <div className="topbar__inner">
           <div className="brand">
@@ -903,7 +738,7 @@ function Home() {
               className="icon-link icon-link--count"
               type="button"
               aria-label="Cart"
-              onClick={() => setIsCartOpen(true)}
+              onClick={onCartOpen}
             >
               <BagIcon />
               <span>({cartCount})</span>
@@ -1386,7 +1221,7 @@ function Home() {
                     type="button"
                     className="jewelry-card__cart-btn"
                     onClick={() =>
-                      addToCart({
+                      onAddToCart({
                         id: item.id,
                         title: item.title,
                         price: item.price,
@@ -1534,7 +1369,7 @@ function Home() {
                     type="button"
                     className="trending-card__cart-btn"
                     onClick={() =>
-                      addToCart({
+                      onAddToCart({
                         id: item.id,
                         title: item.title,
                         price: item.price,
@@ -1659,7 +1494,7 @@ function Home() {
                   type="button"
                   className="watch-reels-card__button"
                   onClick={() =>
-                    addToCart({
+                    onAddToCart({
                       id: item.id,
                       title: item.title,
                       price: item.price,
