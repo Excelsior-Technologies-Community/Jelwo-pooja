@@ -4018,6 +4018,20 @@ input {
   padding-right: 18px;
 }
 
+.location-page__panel .contact-two-panel__inner {
+  grid-template-columns: minmax(0, 0.92fr) minmax(300px, 1.08fr);
+  gap: 20px;
+}
+
+.location-page__panel .contact-two-panel__content {
+  padding-right: 0;
+}
+
+.location-page__panel .contact-two-panel__media img {
+  min-height: 500px !important;
+  
+}
+
 .contact-two-panel__eyebrow {
   margin: 0 0 18px;
   color: #b18460;
@@ -4081,6 +4095,7 @@ input {
   font-size: 1.35rem;
   text-decoration: none;
 }
+
 
 .contact-two-benefits {
   max-width: 1280px;
@@ -4282,6 +4297,132 @@ input {
 .shipping-policy-layout__column li p,
 .terms-policy-layout__column li p {
   margin: 0;
+}
+
+.privacy-policy-layout {
+  padding: 56px 30px 96px;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 74px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.privacy-policy-layout__column {
+  min-width: 0;
+}
+
+.privacy-policy-layout__section + .privacy-policy-layout__section {
+  margin-top: 54px;
+}
+
+.privacy-policy-layout__section h2 {
+  margin: 0 0 24px;
+  color: #122746;
+  font-size: clamp(2rem, 2.6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.privacy-policy-layout__section p,
+.privacy-policy-layout__detail-list li p {
+  margin: 0 0 26px;
+  color: #87827d;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.privacy-policy-layout__section a {
+  color: #b18460;
+  text-decoration: none;
+}
+
+.privacy-policy-layout__group + .privacy-policy-layout__group,
+.privacy-policy-layout__rights-item + .privacy-policy-layout__rights-item {
+  margin-top: 34px;
+}
+
+.privacy-policy-layout__group h3,
+.privacy-policy-layout__rights-item h3,
+.privacy-policy-layout__table-title {
+  margin: 0 0 18px;
+  color: #122746;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.privacy-policy-layout__detail-list,
+.privacy-policy-layout__bullet-list {
+  margin: 0 0 28px;
+  padding-left: 18px;
+}
+
+.privacy-policy-layout__detail-list li,
+.privacy-policy-layout__bullet-list li {
+  margin-bottom: 18px;
+  color: #222222;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.privacy-policy-layout__detail-list li strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #1f1f1f;
+  font-weight: 700;
+}
+
+.privacy-policy-layout__detail-list li p {
+  margin-bottom: 0;
+}
+
+.privacy-policy-layout__table-title {
+  margin-top: 30px;
+}
+
+.privacy-policy-layout__table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e8e0d8;
+}
+
+.privacy-policy-layout__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 540px;
+}
+
+.privacy-policy-layout__table th,
+.privacy-policy-layout__table td {
+  padding: 18px 16px;
+  border-bottom: 1px solid #e8e0d8;
+  border-right: 1px solid #e8e0d8;
+  text-align: left;
+  vertical-align: top;
+}
+
+.privacy-policy-layout__table th:last-child,
+.privacy-policy-layout__table td:last-child {
+  border-right: 0;
+}
+
+.privacy-policy-layout__table tr:last-child td {
+  border-bottom: 0;
+}
+
+.privacy-policy-layout__table th {
+  color: #1f1f1f;
+  font-size: 1rem;
+  font-weight: 700;
+  background: #fbf8f4;
+}
+
+.privacy-policy-layout__table td {
+  color: #87827d;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 
@@ -5015,7 +5156,8 @@ input {
 
   .refund-policy-layout,
   .shipping-policy-layout,
-  .terms-policy-layout {
+  .terms-policy-layout,
+  .privacy-policy-layout {
     grid-template-columns: 1fr;
     gap: 8px;
   }
@@ -5170,6 +5312,15 @@ input {
     padding-right: 0;
   }
 
+  .location-page__panel .contact-two-panel__inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .location-page__panel .contact-two-panel__media img {
+    min-height: 320px;
+  }
+
   .contact-two-panel__content h2 {
     margin-bottom: 28px;
   }
@@ -5207,7 +5358,8 @@ input {
 
   .refund-policy-layout,
   .shipping-policy-layout,
-  .terms-policy-layout {
+  .terms-policy-layout,
+  .privacy-policy-layout {
     padding: 42px 16px 64px;
   }
 
@@ -5215,6 +5367,10 @@ input {
   .shipping-policy-layout__column h2,
   .terms-policy-layout__column h2 {
     font-size: 1rem;
+  }
+
+  .privacy-policy-layout__section h2 {
+    font-size: 1.85rem;
   }
 
   .faq-layout__category {
@@ -5389,4 +5545,3 @@ input {
   }
 
 }
-

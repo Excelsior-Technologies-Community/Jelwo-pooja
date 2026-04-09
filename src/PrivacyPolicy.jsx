@@ -11,6 +11,10 @@ import shopPromo from "./assets/shop.webp";
 import productPromo1 from "./assets/p2.webp";
 import productPromo2 from "./assets/p4.webp";
 import breadcrumbImage from "./assets/jewelry-3-breadcrumb.jpg";
+import visaCard from "./assets/visa.png";
+import mastercardCard from "./assets/mastercard.png";
+import paypalCard from "./assets/paypal.png";
+import discoverCard from "./assets/discover.png";
 
 function SearchIcon() {
   return (
@@ -75,6 +79,32 @@ function HomeOutlineIcon() {
   );
 }
 
+function LocationPinIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 21s-5.5-5.2-5.5-10A5.5 5.5 0 1 1 17.5 11C17.5 15.8 12 21 12 21Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <circle cx="12" cy="11" r="2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 4.5h3l1 4-2 1.7a15.6 15.6 0 0 0 4.8 4.8l1.7-2 4 1v3c0 .8-.7 1.5-1.5 1.5C10.6 18.5 5.5 13.4 5.5 7A1.5 1.5 0 0 1 7 5.5Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <path d="m5.5 7 6.5 5L18.5 7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 const homeMenuItems = [
   { id: 1, title: "06 Classic jewelry", image: home6, badge: "New" },
   { id: 2, title: "01 Unique jewelry", image: menu2 },
@@ -131,6 +161,122 @@ const pagesMenuItems = [
   "Store location",
   "Shipping & return",
   "Terms & condition",
+];
+
+const footerSocials = [
+  { id: "facebook", label: "Facebook", iconClass: "fa-brands fa-facebook-f" },
+  { id: "x", label: "X", iconClass: "fa-brands fa-x-twitter" },
+  { id: "instagram", label: "Instagram", iconClass: "fa-brands fa-instagram" },
+  { id: "pinterest", label: "Pinterest", iconClass: "fa-brands fa-pinterest-p" },
+  { id: "youtube", label: "Youtube", iconClass: "fa-brands fa-youtube" },
+];
+
+const footerPayments = [
+  { id: "visa", image: visaCard, alt: "Visa" },
+  { id: "mastercard", image: mastercardCard, alt: "Mastercard" },
+  { id: "paypal", image: paypalCard, alt: "Paypal" },
+  { id: "discover", image: discoverCard, alt: "Discover" },
+];
+
+const privacyCollectionGroups = [
+  {
+    title: "Device information",
+    items: [
+      {
+        label: "Examples of personal information collected:",
+        text: "Browser version, IP address, time zone, cookie data, and details about how you browse and interact with our storefront.",
+      },
+      {
+        label: "Purpose of collection:",
+        text: "To load the site accurately for your device, improve performance, and understand how visitors use the store.",
+      },
+      {
+        label: "Source of collection:",
+        text: "Collected automatically when you access our website using cookies, log files, pixels, tags, and similar technologies.",
+      },
+    ],
+  },
+  {
+    title: "Order information",
+    items: [
+      {
+        label: "Examples of personal information collected:",
+        text: "Name, billing address, shipping address, payment details, email address, and phone number.",
+      },
+      {
+        label: "Purpose of collection:",
+        text: "To process your payment, arrange shipping, provide invoices or order confirmations, and communicate about your purchase.",
+      },
+      {
+        label: "Source of collection:",
+        text: "Collected directly from you when you place an order or update your checkout information.",
+      },
+    ],
+  },
+  {
+    title: "Customer support information",
+    items: [
+      {
+        label: "Examples of personal information collected:",
+        text: "Order number, contact details, support history, and any information you share when asking for help.",
+      },
+      {
+        label: "Purpose of collection:",
+        text: "To respond to questions, resolve issues, and keep a record of service requests so we can support you faster.",
+      },
+      {
+        label: "Source of collection:",
+        text: "Collected directly from you through contact forms, email messages, and support conversations.",
+      },
+    ],
+  },
+];
+
+const privacyRights = [
+  {
+    title: "GDPR",
+    text: "If you are a resident of the European Economic Area, you have the right to access the personal information we hold about you and to ask that it be corrected, updated, or erased where required by law.",
+  },
+  {
+    title: "CCPA",
+    text: "If you are a California resident, you may request access to the categories of personal information we collect and ask us to delete or limit certain uses of that information when applicable.",
+  },
+];
+
+const sharingPartners = [
+  "payment processors that securely authorize transactions",
+  "shipping and fulfillment partners that deliver orders",
+  "analytics providers that help us understand store performance",
+  "marketing platforms that help us manage newsletters and ad campaigns",
+];
+
+const behaviouralAdvertisingOptions = [
+  "Use your browser settings to block or clear cookies.",
+  "Unsubscribe from marketing emails by using the link in any campaign message.",
+  "Contact our team if you want us to stop using your information for promotional outreach.",
+];
+
+const sellingPolicyPoints = [
+  "We do not sell personal information for direct monetary value.",
+  "We may share limited identifiers with trusted marketing and analytics vendors to improve store performance.",
+  "You can ask us to review, delete, or restrict this processing by contacting our support team.",
+];
+
+const essentialCookies = [
+  { name: "_djc", purpose: "Supports storefront session management and keeps secure browsing preferences active." },
+  { name: "_secure", purpose: "Helps protect customer sessions and maintain security checks during checkout." },
+  { name: "cart_st", purpose: "Stores cart status so items remain available while you continue shopping." },
+  { name: "secret", purpose: "Verifies secure actions and protects customer requests from unauthorized use." },
+  { name: "secure_customer", purpose: "Maintains the signed-in customer state across protected account pages." },
+  { name: "_shopify_u", purpose: "Tracks account updates after login so the storefront experience stays consistent." },
+];
+
+const analyticsCookies = [
+  { name: "_shopify_y", purpose: "Measures visitor behavior over time so we can improve navigation and conversion paths." },
+  { name: "_landing_page", purpose: "Remembers the first page a visitor entered to help evaluate campaign performance." },
+  { name: "_orig_referrer", purpose: "Stores referral details so we know which channels drive traffic to the store." },
+  { name: "_s", purpose: "Tracks storefront analytics sessions for short-term reporting and funnel analysis." },
+  { name: "_shopify_sa_t", purpose: "Supports marketing attribution for traffic sources and campaign effectiveness." },
 ];
 
 function PrivacyPolicy() {
@@ -462,7 +608,240 @@ function PrivacyPolicy() {
         <h1>Privacy Policy</h1>
       </section>
 
-      
+      <section className="privacy-policy-layout">
+        <div className="privacy-policy-layout__column">
+          <section className="privacy-policy-layout__section">
+            <h2>Collecting personal information</h2>
+            <p>
+              When you visit the site, we collect certain information about your device, your interactions with the store, and
+              information needed to process purchases or respond to support requests.
+            </p>
+            <p>
+              This information helps us operate the storefront, secure checkout, deliver orders, and improve the shopping
+              experience over time.
+            </p>
+
+            {privacyCollectionGroups.map((group) => (
+              <div className="privacy-policy-layout__group" key={group.title}>
+                <h3>{group.title}</h3>
+                <ul className="privacy-policy-layout__detail-list">
+                  {group.items.map((item) => (
+                    <li key={item.label}>
+                      <strong>{item.label}</strong>
+                      <p>{item.text}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+
+          <section className="privacy-policy-layout__section">
+            <h2>Your rights</h2>
+            {privacyRights.map((item) => (
+              <div className="privacy-policy-layout__rights-item" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
+            <p>
+              To exercise any of these rights, please contact us at <a href="mailto:support@jelwo.com">support@jelwo.com</a>.
+            </p>
+          </section>
+
+          <section className="privacy-policy-layout__section">
+            <h2>Changes</h2>
+            <p>
+              We may update this privacy policy from time to time to reflect operational, legal, or regulatory changes.
+            </p>
+            <p>
+              When updates are made, the revised version will be posted on this page so you can review the latest information.
+            </p>
+          </section>
+        </div>
+
+        <div className="privacy-policy-layout__column">
+          <section className="privacy-policy-layout__section">
+            <h2>Sharing personal information</h2>
+            <p>
+              We share personal information with service providers only when it is necessary to run our business and fulfill the
+              services you request from us.
+            </p>
+            <ul className="privacy-policy-layout__bullet-list">
+              {sharingPartners.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p>
+              We may also share information to comply with applicable laws, respond to lawful requests, or protect our rights.
+            </p>
+          </section>
+
+          <section className="privacy-policy-layout__section">
+            <h2>Behavioural advertising</h2>
+            <p>
+              We may use your information to provide you with targeted advertisements or marketing communications that we believe
+              may be relevant to your interests.
+            </p>
+            <p>
+              If you prefer to opt out of this type of activity, you can take any of the following steps:
+            </p>
+            <ul className="privacy-policy-layout__bullet-list">
+              {behaviouralAdvertisingOptions.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="privacy-policy-layout__section">
+            <h2>Selling personal information</h2>
+            <p>
+              Some privacy laws use a broad definition of the word &quot;sell.&quot; We want to be clear about how we handle your data.
+            </p>
+            <ul className="privacy-policy-layout__bullet-list">
+              {sellingPolicyPoints.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="privacy-policy-layout__section">
+            <h2>Cookies</h2>
+            <p>
+              We use cookies to support core store functionality, remember your preferences, and understand how customers use the
+              website.
+            </p>
+
+            <h3 className="privacy-policy-layout__table-title">Cookies necessary for the functioning of the store</h3>
+            <div className="privacy-policy-layout__table-wrap">
+              <table className="privacy-policy-layout__table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Function</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {essentialCookies.map((cookie) => (
+                    <tr key={cookie.name}>
+                      <td>{cookie.name}</td>
+                      <td>{cookie.purpose}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="privacy-policy-layout__table-title">Reporting and analytics</h3>
+            <div className="privacy-policy-layout__table-wrap">
+              <table className="privacy-policy-layout__table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Function</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {analyticsCookies.map((cookie) => (
+                    <tr key={cookie.name}>
+                      <td>{cookie.name}</td>
+                      <td>{cookie.purpose}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <div className="site-footer__top">
+          <div className="site-footer__brand">
+            <img src={logo} alt="Jelwo" className="site-footer__logo" />
+
+            <div className="site-footer__contact-list">
+              <div className="site-footer__contact-item">
+                <span className="site-footer__contact-icon"><LocationPinIcon /></span>
+                <p>55 East 10th street, new york, ny 10003, united states</p>
+              </div>
+
+              <div className="site-footer__contact-item">
+                <span className="site-footer__contact-icon"><PhoneIcon /></span>
+                <p>+ (220) 123 456 7890</p>
+              </div>
+
+              <div className="site-footer__contact-item">
+                <span className="site-footer__contact-icon"><MailIcon /></span>
+                <p>demo123546@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="site-footer__links">
+            <div className="site-footer__column">
+              <h3>Information</h3>
+              <a href="/">About us</a>
+              <a href="/">Contact us</a>
+              <a href="/faqs" onClick={(event) => { event.preventDefault(); navigateToFaqs(); }}>Faq&apos;s</a>
+              <a href="/">News</a>
+            </div>
+
+            <div className="site-footer__column">
+              <h3>Privacy &amp; terms</h3>
+              <a href="/privacy-policy" onClick={(event) => { event.preventDefault(); navigateToPrivacyPolicy(); }}>Privacy policy</a>
+              <a href="/refund" onClick={(event) => { event.preventDefault(); navigateToRefund(); }}>Refund policy</a>
+              <a href="/shipping" onClick={(event) => { event.preventDefault(); navigateToShipping(); }}>Shipping &amp; return</a>
+              <a href="/terms" onClick={(event) => { event.preventDefault(); navigateToTerms(); }}>Terms &amp; condition</a>
+            </div>
+
+            <div className="site-footer__column">
+              <h3>Category</h3>
+              <a href="/">Rings</a>
+              <a href="/">Earring</a>
+              <a href="/">Pendant</a>
+              <a href="/">Necklaces</a>
+              <a href="/">Bracelets</a>
+            </div>
+
+            <div className="site-footer__column">
+              <h3>Visit store</h3>
+              <p>Mon - sat : 10am - 11pm</p>
+              <p>Sun : 10am - 4pm</p>
+              <p>7 Days a week</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="site-footer__middle">
+          <div className="site-footer__socials">
+            {footerSocials.map((item) => (
+              <button type="button" key={item.id} aria-label={item.label}>
+                <i className={item.iconClass} aria-hidden="true"></i>
+              </button>
+            ))}
+          </div>
+
+          <div className="site-footer__subscribe">
+            <p>Subscribe and get 15% discount.</p>
+
+            <div className="site-footer__subscribe-form">
+              <input type="email" placeholder="Enter your email" />
+              <button type="button">SUBSCRIBE</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="site-footer__bottom">
+          <p>Copyright (c) 2026 by spacingtech</p>
+
+          <div className="site-footer__payments">
+            {footerPayments.map((item) => (
+              <img key={item.id} src={item.image} alt={item.alt} />
+            ))}
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
