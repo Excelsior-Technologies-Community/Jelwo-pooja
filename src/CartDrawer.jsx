@@ -10,6 +10,7 @@ function CartDrawer({
   cartCount,
   cartSubtotal,
   onClose,
+  onViewCart,
   onUpdateQuantity,
   onRemoveItem,
 }) {
@@ -135,7 +136,13 @@ function CartDrawer({
           </div>
           <p>Taxes, discounts and shipping calculated at checkout.</p>
           <div className="cart-drawer__footer-actions">
-            <button type="button" className="cart-drawer__view-cart">VIEW CART</button>
+            <button
+              type="button"
+              className="cart-drawer__view-cart"
+              onClick={onViewCart}
+            >
+              VIEW CART
+            </button>
             <button type="button" className="cart-drawer__checkout">CHECKOUT</button>
           </div>
         </div>

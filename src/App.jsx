@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AboutUs from "./AboutUs";
 import AboutUs2 from "./AboutUs2";
 import Blog from "./Blog";
+import Cart from "./Cart";
 import CartDrawer from "./CartDrawer";
 import Collection from "./Collection";
 import ContactUs from "./ContactUs";
@@ -159,13 +160,27 @@ function App() {
 
   const isInWishlist = (id) => wishlistItems.some((item) => item.id === id);
 
+  const navigateTo = (path) => {
+    window.history.pushState({}, "", path);
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  const handleViewCart = () => {
+    setIsCartOpen(false);
+    navigateTo("/cart");
+  };
+
   const sharedPageProps = {
     cartCount,
+    cartItems,
+    cartSubtotal,
     wishlistCount,
     wishlistItems,
     onCartOpen: () => setIsCartOpen(true),
     onAddToCart: addToCart,
     onAddToWishlist: addToWishlist,
+    onUpdateCartQuantity: updateCartQuantity,
+    onRemoveCartItem: removeCartItem,
     onRemoveFromWishlist: removeFromWishlist,
     onToggleWishlist: toggleWishlist,
     isInWishlist,
@@ -212,6 +227,9 @@ function App() {
   else if (pathname === "/wishlist") {
     page = <Wishlist {...sharedPageProps} />;
   }
+  else if (pathname === "/cart") {
+    page = <Cart {...sharedPageProps} />;
+  }
 
   return (
     <>
@@ -221,6 +239,7 @@ function App() {
         cartCount={cartCount}
         cartSubtotal={cartSubtotal}
         onClose={() => setIsCartOpen(false)}
+        onViewCart={handleViewCart}
         onUpdateQuantity={updateCartQuantity}
         onRemoveItem={removeCartItem}
       />
