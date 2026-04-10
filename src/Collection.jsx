@@ -27,6 +27,7 @@ import visaCard from "./assets/visa.png";
 import mastercardCard from "./assets/mastercard.png";
 import paypalCard from "./assets/paypal.png";
 import discoverCard from "./assets/discover.png";
+import { buildProductDetail } from "./productCatalog";
 
 function SearchIcon() {
   return (
@@ -290,6 +291,7 @@ const footerPayments = [
 const collectionProducts = [
   {
     id: "collection-diamond-ring",
+    galleryKey: "j2",
     discount: "45%",
     image: jewelry2,
     title: "Chic diamond ring",
@@ -299,6 +301,7 @@ const collectionProducts = [
   },
   {
     id: "collection-jhumkas",
+    galleryKey: "j3",
     discount: "64%",
     image: jewelry3,
     title: "Gemstone jhumkas",
@@ -308,6 +311,7 @@ const collectionProducts = [
   },
   {
     id: "collection-drop-earrings",
+    galleryKey: "j4",
     discount: "68%",
     image: jewelry4,
     title: "Drop gold earrings",
@@ -317,6 +321,7 @@ const collectionProducts = [
   },
   {
     id: "collection-chain-bracelet",
+    galleryKey: "j5",
     discount: "56%",
     image: jewelry5,
     title: "Gemstone chain bracelet",
@@ -326,6 +331,7 @@ const collectionProducts = [
   },
   {
     id: "collection-cluster-ring",
+    galleryKey: "j2",
     discount: "18%",
     image: jewelry2Alt,
     title: "Cluster diamond ring",
@@ -335,6 +341,7 @@ const collectionProducts = [
   },
   {
     id: "collection-flora-bangle",
+    galleryKey: "j3",
     discount: "24%",
     image: jewelry3Alt,
     title: "Flora diamond bangle",
@@ -344,6 +351,7 @@ const collectionProducts = [
   },
   {
     id: "collection-glitter-ring",
+    galleryKey: "j4",
     discount: "13%",
     image: jewelry4Alt,
     title: "Glitter diamond ring",
@@ -353,6 +361,7 @@ const collectionProducts = [
   },
   {
     id: "collection-cluster-ring-two",
+    galleryKey: "j2",
     discount: "13%",
     image: jewelry2AltTwo,
     title: "Cluster diamond ring",
@@ -362,6 +371,7 @@ const collectionProducts = [
   },
   {
     id: "collection-blossom-bangle",
+    galleryKey: "j3",
     discount: "20%",
     image: jewelry3,
     title: "Blossom diamond bangle",
@@ -371,6 +381,7 @@ const collectionProducts = [
   },
   {
     id: "collection-framed-pendant",
+    galleryKey: "j5",
     discount: "12%",
     image: specialProduct2,
     title: "Framed gold pendant",
@@ -384,7 +395,15 @@ function getCartPrice(price) {
   return String(price).replace(/^From\s+/i, "");
 }
 
-function Collection({ cartCount, wishlistCount, onCartOpen, onAddToCart, onToggleWishlist, isInWishlist }) {
+function Collection({
+  cartCount,
+  wishlistCount,
+  onCartOpen,
+  onAddToCart,
+  onToggleWishlist,
+  onViewProduct,
+  isInWishlist,
+}) {
   const [isHomeMenuOpen, setIsHomeMenuOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
@@ -563,6 +582,15 @@ function Collection({ cartCount, wishlistCount, onCartOpen, onAddToCart, onToggl
       category: "JEWELRY",
       variant: selectedProductOptions[item.id] ?? item.options[0],
     });
+  };
+
+  const viewProductItem = (item) => {
+    onViewProduct(
+      buildProductDetail({
+        ...item,
+        variant: selectedProductOptions[item.id] ?? item.options[0],
+      })
+    );
   };
 
   useEffect(() => {
@@ -1119,7 +1147,11 @@ function Collection({ cartCount, wishlistCount, onCartOpen, onAddToCart, onToggl
                       >
                         <HeartIcon />
                       </button>
-                      <button type="button" aria-label={`View ${item.title}`}>
+                      <button
+                        type="button"
+                        aria-label={`View ${item.title}`}
+                        onClick={() => viewProductItem(item)}
+                      >
                         <EyeIcon />
                       </button>
                     </div>

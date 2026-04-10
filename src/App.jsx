@@ -11,6 +11,7 @@ import Faqs from "./Faqs";
 import Home from "./Home";
 import Location from "./Location";
 import PrivacyPolicy from "./PrivacyPolicy";
+import ProductCart from "./ProductCart";
 import Refund from "./Refund";
 import Shipping from "./Shipping";
 import Terms from "./Terms";
@@ -76,6 +77,7 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState(loadStoredCartItems);
   const [wishlistItems, setWishlistItems] = useState(loadStoredWishlistItems);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -170,6 +172,11 @@ function App() {
     navigateTo("/cart");
   };
 
+  const handleViewProduct = (product) => {
+    setSelectedProduct(product);
+    navigateTo("/product-cart");
+  };
+
   const sharedPageProps = {
     cartCount,
     cartItems,
@@ -183,7 +190,9 @@ function App() {
     onRemoveCartItem: removeCartItem,
     onRemoveFromWishlist: removeFromWishlist,
     onToggleWishlist: toggleWishlist,
+    onViewProduct: handleViewProduct,
     isInWishlist,
+    selectedProduct,
   };
 
   let page = <Home {...sharedPageProps} />;
@@ -229,6 +238,14 @@ function App() {
   }
   else if (pathname === "/cart") {
     page = <Cart {...sharedPageProps} />;
+  }
+  else if (pathname === "/product-cart") {
+    page = (
+      <ProductCart
+        key={`${selectedProduct?.id ?? "product-detail"}-${selectedProduct?.variant ?? "default"}`}
+        {...sharedPageProps}
+      />
+    );
   }
 
   return (

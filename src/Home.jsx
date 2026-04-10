@@ -45,6 +45,7 @@ import video3 from "./assets/video3.mp4";
 import video4 from "./assets/video4.mp4";
 import video5 from "./assets/video5.mp4";
 import video6 from "./assets/video6.mp4";
+import { buildProductDetail } from "./productCatalog";
 
 
 function SearchIcon() {
@@ -281,6 +282,7 @@ const categorySlides = [
 const newJewelryItems = [
   {
     id: "simple-pearl",
+    galleryKey: "j1",
     discount: "25%",
     image: jewelry1,
     hoverImage: jewelry1Hover,
@@ -292,6 +294,7 @@ const newJewelryItems = [
   },
   {
     id: "diamond-ring",
+    galleryKey: "j2",
     discount: "45%",
     image: jewelry2,
     hoverImage: jewelry2Hover,
@@ -303,6 +306,7 @@ const newJewelryItems = [
   },
   {
     id: "jhumkas",
+    galleryKey: "j3",
     discount: "64%",
     image: jewelry3,
     hoverImage: jewelry3,
@@ -314,6 +318,7 @@ const newJewelryItems = [
   },
   {
     id: "drop-earrings",
+    galleryKey: "j4",
     discount: "68%",
     image: jewelry4,
     hoverImage: jewelry4,
@@ -328,6 +333,7 @@ const newJewelryItems = [
 const trendingProductsItems = [
   {
     id: "trend-simple-pearl",
+    galleryKey: "j1",
     discount: "25%",
     image: jewelry1,
     title: "Simple Pearl earrings",
@@ -336,6 +342,7 @@ const trendingProductsItems = [
   },
   {
     id: "trend-diamond-ring",
+    galleryKey: "j2",
     discount: "68%",
     image: jewelry2,
     hoverImage: jewelry2Hover,
@@ -346,6 +353,7 @@ const trendingProductsItems = [
   },
   {
     id: "trend-nose-pin",
+    galleryKey: "j5",
     discount: "68%",
     image: jewelry5,
     title: "Nose Pin",
@@ -354,6 +362,7 @@ const trendingProductsItems = [
   },
   {
     id: "trend-jhumkas",
+    galleryKey: "j3",
     discount: "68%",
     image: jewelry3,
     title: "Gmestone Jhumkas",
@@ -464,7 +473,15 @@ const watchShopReelsItems = [
   },
 ];
 
-function Home({ cartCount, wishlistCount, onCartOpen, onAddToCart, onToggleWishlist, isInWishlist }) {
+function Home({
+  cartCount,
+  wishlistCount,
+  onCartOpen,
+  onAddToCart,
+  onToggleWishlist,
+  onViewProduct,
+  isInWishlist,
+}) {
   const [isHomeMenuOpen, setIsHomeMenuOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
@@ -717,6 +734,10 @@ function Home({ cartCount, wishlistCount, onCartOpen, onAddToCart, onToggleWishl
       category: "JEWELRY",
       variant: item.variant || "Gold",
     });
+  };
+
+  const viewProductItem = (item) => {
+    onViewProduct(buildProductDetail(item));
   };
 
   return (
@@ -1170,7 +1191,11 @@ function Home({ cartCount, wishlistCount, onCartOpen, onAddToCart, onToggleWishl
                     >
                       <HeartIcon />
                     </button>
-                    <button type="button" aria-label={`View ${item.title}`}>
+                    <button
+                      type="button"
+                      aria-label={`View ${item.title}`}
+                      onClick={() => viewProductItem(item)}
+                    >
                       <EyeIcon />
                     </button>
                   </div>
@@ -1325,7 +1350,11 @@ function Home({ cartCount, wishlistCount, onCartOpen, onAddToCart, onToggleWishl
                     >
                       <HeartIcon />
                     </button>
-                    <button type="button" aria-label={`View ${item.title}`}>
+                    <button
+                      type="button"
+                      aria-label={`View ${item.title}`}
+                      onClick={() => viewProductItem(item)}
+                    >
                       <EyeIcon />
                     </button>
                   </div>
